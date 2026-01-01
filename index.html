@@ -79,4 +79,233 @@
         <h2>Insider</h2>
         <div class="price">1 800 $ <span class="small" data-i18n="perYear">/ an</span></div>
         <ul>
-          <li data-i18n="ins1">2 nu
+          <li data-i18n="ins1">2 nuits incluses</li>
+          <li data-i18n="ins2">Utilisable en basse & mi-saison</li>
+          <li data-i18n="ins3">Dimanche → Jeudi</li>
+          <li data-i18n="ins4">Frais de ménage obligatoires en sus</li>
+          <li data-i18n="ins5">Blackout : été, relâche, fêtes, longs week-ends</li>
+        </ul>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary" id="payInsider" href="STRIPE_LINK_INSIDER" target="_blank" rel="noopener"
+             data-i18n="payStripe">Payer (Stripe)</a>
+          <a class="btn" href="#blackouts" data-i18n="seeBlackouts">Voir blackout dates</a>
+        </div>
+
+        <p class="small" data-i18n="afterPay">
+          Après paiement, tu reçois un email pour demander tes dates.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Signature</h2>
+        <div class="price">3 900 $ <span class="small" data-i18n="perYear">/ an</span></div>
+        <ul>
+          <li data-i18n="sig1">5 nuits incluses (max 2 séjours)</li>
+          <li data-i18n="sig2">Accès last-minute (J-10) selon disponibilité</li>
+          <li data-i18n="sig3">Priorité sur annulations</li>
+          <li data-i18n="sig4">Frais de ménage obligatoires en sus</li>
+          <li data-i18n="sig5">Blackout strict (last-minute seulement, non garanti)</li>
+        </ul>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary" id="paySignature" href="STRIPE_LINK_SIGNATURE" target="_blank" rel="noopener"
+             data-i18n="payStripe">Payer (Stripe)</a>
+          <a class="btn" href="#blackouts" data-i18n="seeBlackouts">Voir blackout dates</a>
+        </div>
+
+        <p class="small" data-i18n="afterPay">
+          Après paiement, tu reçois un email pour demander tes dates.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="blackouts" class="section">
+    <h3 data-i18n="blackoutsTitle">Blackout dates (QC + ON)</h3>
+
+    <div class="twoCol">
+      <div class="card">
+        <h2 data-i18n="blockedTitle">Périodes bloquées</h2>
+        <ul>
+          <li data-i18n="b1"><b>Été :</b> 20 juin → 5 septembre (inclus)</li>
+          <li data-i18n="b2"><b>Fêtes :</b> 15 décembre → 5 janvier (inclus)</li>
+          <li data-i18n="b3"><b>Relâche (QC + ON) :</b> 1er mars → 15 mars (inclus)</li>
+        </ul>
+        <p class="small" data-i18n="blockedNote">
+          Objectif : protéger les dates à forte demande sur Airbnb.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 data-i18n="rulesTitle">Règles d’usage</h2>
+        <ul>
+          <li data-i18n="r1">Par défaut : <b>Dim → Jeu</b></li>
+          <li data-i18n="r2">Vend/Sam exclus (sauf exceptions)</li>
+          <li data-i18n="r3"><b>Signature :</b> last-minute J-10 possible selon disponibilité (non garanti)</li>
+          <li data-i18n="r4">Le calendrier propriétaire fait foi</li>
+        </ul>
+        <p class="small" data-i18n="rulesNote">
+          Les blackout dates sont révisées chaque année.
+        </p>
+      </div>
+    </div>
+
+    <div class="note">
+      <div class="small" data-i18n="holidayNote">
+        <b>Note longs week-ends :</b> Les week-ends fériés (QC/ON) sont exclus par défaut pour protéger l’ADR.
+        Certaines exceptions peuvent être ouvertes au cas par cas (Signature, last-minute).
+      </div>
+    </div>
+  </div>
+
+  <div id="request" class="section">
+    <h3 data-i18n="requestTitle">Demander l’accès / Demander des dates</h3>
+
+    <div class="card">
+      <p class="sub" style="margin:0 0 12px;" data-i18n="requestSub">
+        Utilise ce formulaire pour : (1) demander une invitation, ou (2) proposer des dates (si tu es déjà membre).
+      </p>
+
+      <div class="ctaRow">
+        <a class="btn btnPrimary" id="openForm" href="GOOGLE_FORM_URL" target="_blank" rel="noopener"
+           data-i18n="openForm">Ouvrir le formulaire</a>
+        <a class="btn" href="mailto:val.lacamico@gmail.com?subject=Lac%20Amico%20Private%20Club%20-%20Question"
+           data-i18n="emailUs">Envoyer un email</a>
+      </div>
+
+      <p class="small" data-i18n="formTip">
+        Conseil : demande 2 options de dates (Option #1 et Option #2) pour réduire les allers-retours.
+      </p>
+
+      <p class="small mono">
+        Stripe links to set: <b>STRIPE_LINK_INSIDER</b> & <b>STRIPE_LINK_SIGNATURE</b> • Form link: <b>GOOGLE_FORM_URL</b>
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <div data-i18n="legal">
+      <b>Legal:</b> This is a private membership/loyalty program. It is not a lease, not a timeshare, and benefits are conditional.
+    </div>
+    <div>© Lac Amico Private Club • val.lacamico@gmail.com</div>
+  </footer>
+</div>
+
+<script>
+  const i18n = {
+    fr: {
+      badge: "Invitation only • Limited to 30 members",
+      h1: "A place you return to.<br/>Not a place you book.",
+      heroSub: "Membership privé donnant accès prioritaire à un chalet calme et haut de gamme dans les Laurentides. Les nuits incluses sont réservées aux périodes basse & mi-saison (pour protéger les dates premium).",
+      ctaPlans: "Voir les memberships",
+      ctaRequest: "Demander l’accès",
+      note: "<b>Important :</b> ce programme n’est pas une promo. Les avantages sont conditionnels et soumis aux règles et disponibilités. Frais de ménage en sus. Blackout dates strictes.",
+
+      plansTitle: "Memberships",
+      perYear: "/ an",
+      ins1: "2 nuits incluses",
+      ins2: "Utilisable en basse & mi-saison",
+      ins3: "Dimanche → Jeudi",
+      ins4: "Frais de ménage obligatoires en sus",
+      ins5: "Blackout : été, relâche, fêtes, longs week-ends",
+      sig1: "5 nuits incluses (max 2 séjours)",
+      sig2: "Accès last-minute (J-10) selon disponibilité",
+      sig3: "Priorité sur annulations",
+      sig4: "Frais de ménage obligatoires en sus",
+      sig5: "Blackout strict (last-minute seulement, non garanti)",
+      payStripe: "Payer (Stripe)",
+      seeBlackouts: "Voir blackout dates",
+      afterPay: "Après paiement, tu reçois un email pour demander tes dates.",
+
+      blackoutsTitle: "Blackout dates (QC + ON)",
+      blockedTitle: "Périodes bloquées",
+      b1: "<b>Été :</b> 20 juin → 5 septembre (inclus)",
+      b2: "<b>Fêtes :</b> 15 décembre → 5 janvier (inclus)",
+      b3: "<b>Relâche (QC + ON) :</b> 1er mars → 15 mars (inclus)",
+      blockedNote: "Objectif : protéger les dates à forte demande sur Airbnb.",
+
+      rulesTitle: "Règles d’usage",
+      r1: "Par défaut : <b>Dim → Jeu</b>",
+      r2: "Vend/Sam exclus (sauf exceptions)",
+      r3: "<b>Signature :</b> last-minute J-10 possible selon disponibilité (non garanti)",
+      r4: "Le calendrier propriétaire fait foi",
+      rulesNote: "Les blackout dates sont révisées chaque année.",
+      holidayNote: "<b>Note longs week-ends :</b> Les week-ends fériés (QC/ON) sont exclus par défaut pour protéger l’ADR. Certaines exceptions peuvent être ouvertes au cas par cas (Signature, last-minute).",
+
+      requestTitle: "Demander l’accès / Demander des dates",
+      requestSub: "Utilise ce formulaire pour : (1) demander une invitation, ou (2) proposer des dates (si tu es déjà membre).",
+      openForm: "Ouvrir le formulaire",
+      emailUs: "Envoyer un email",
+      formTip: "Conseil : demande 2 options de dates (Option #1 et Option #2) pour réduire les allers-retours.",
+      legal: "<b>Legal:</b> This is a private membership/loyalty program. It is not a lease, not a timeshare, and benefits are conditional."
+    },
+    en: {
+      badge: "Invitation only • Limited to 30 members",
+      h1: "A place you return to.<br/>Not a place you book.",
+      heroSub: "A private membership giving priority access to a calm, premium chalet in the Laurentians. Included nights are limited to off & mid-season periods to protect peak pricing.",
+      ctaPlans: "View memberships",
+      ctaRequest: "Request access",
+      note: "<b>Important:</b> this is not a discount program. Benefits are conditional and subject to rules and availability. Cleaning fees are extra. Strict blackout dates apply.",
+
+      plansTitle: "Memberships",
+      perYear: "/ year",
+      ins1: "2 nights included",
+      ins2: "Valid in off & mid-season",
+      ins3: "Sunday → Thursday",
+      ins4: "Cleaning fees required (extra)",
+      ins5: "Blackout: summer, school break, holidays, long weekends",
+      sig1: "5 nights included (max 2 stays)",
+      sig2: "Last-minute access (D-10) subject to availability",
+      sig3: "Priority on cancellations",
+      sig4: "Cleaning fees required (extra)",
+      sig5: "Strict blackout (last-minute only, not guaranteed)",
+      payStripe: "Pay (Stripe)",
+      seeBlackouts: "See blackout dates",
+      afterPay: "After payment, you’ll receive an email to request dates.",
+
+      blackoutsTitle: "Blackout dates (QC + ON)",
+      blockedTitle: "Blocked periods",
+      b1: "<b>Summer:</b> June 20 → September 5 (inclusive)",
+      b2: "<b>Holidays:</b> December 15 → January 5 (inclusive)",
+      b3: "<b>School break (QC + ON):</b> March 1 → March 15 (inclusive)",
+      blockedNote: "Goal: protect peak-demand dates and pricing on Airbnb.",
+
+      rulesTitle: "Usage rules",
+      r1: "Default: <b>Sun → Thu</b>",
+      r2: "Fri/Sat excluded (unless exceptions)",
+      r3: "<b>Signature:</b> last-minute D-10 may be available (not guaranteed)",
+      r4: "Owner calendar is the source of truth",
+      rulesNote: "Blackout dates are reviewed annually.",
+      holidayNote: "<b>Long weekends note:</b> QC/ON long-weekend holidays are excluded by default to protect ADR. Some exceptions may open case-by-case (Signature, last-minute).",
+
+      requestTitle: "Request access / Request dates",
+      requestSub: "Use this form to (1) request an invitation, or (2) propose dates (if you are already a member).",
+      openForm: "Open the form",
+      emailUs: "Email us",
+      formTip: "Tip: ask for 2 date options (Option #1 and Option #2) to reduce back-and-forth.",
+      legal: "<b>Legal:</b> This is a private membership/loyalty program. It is not a lease, not a timeshare, and benefits are conditional."
+    }
+  };
+
+  let lang = "fr";
+
+  function applyI18n() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      el.innerHTML = i18n[lang][key] || el.innerHTML;
+    });
+    document.getElementById("btnFr").classList.toggle("active", lang === "fr");
+    document.getElementById("btnEn").classList.toggle("active", lang === "en");
+    document.getElementById("btnFr").setAttribute("aria-pressed", lang === "fr");
+    document.getElementById("btnEn").setAttribute("aria-pressed", lang === "en");
+  }
+
+  document.getElementById("btnFr").addEventListener("click", () => { lang = "fr"; applyI18n(); });
+  document.getElementById("btnEn").addEventListener("click", () => { lang = "en"; applyI18n(); });
+
+  applyI18n();
+</script>
+</body>
+</html>
