@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lac Amico Private Club — Membership</title>
+  <meta name="description" content="Membership privé donnant accès prioritaire au chalet Lac Amico (Laurentides), avec nuits incluses en basse/mi-saison. Invitation only." />
+
+  <style>
+    :root { --bg:#ffffff; --text:#0f172a; --muted:#475569; --card:#f8fafc; --line:#e2e8f0; --accent:#2563eb; }
+    body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:var(--bg); color:var(--text); }
+    .wrap{ max-width:1020px; margin:0 auto; padding:28px 18px 70px; }
+    header{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+    .brand{ font-weight:850; letter-spacing:-0.02em; }
+    .pill{ display:inline-block; padding:6px 10px; border:1px solid var(--line); border-radius:999px; color:var(--muted); font-size:12px; }
+    .lang{ display:flex; gap:8px; align-items:center; }
+    .lang button{ padding:7px 10px; border-radius:10px; border:1px solid var(--line); background:#fff; cursor:pointer; font-weight:650; }
+    .lang button.active{ background:var(--accent); border-color:var(--accent); color:#fff; }
+
+    .hero{ margin-top:22px; border:1px solid var(--line); background:linear-gradient(180deg,#ffffff, #f8fafc); border-radius:18px; padding:26px; }
+    h1{ margin:0; font-size:34px; line-height:1.05; letter-spacing:-0.03em; }
+    .sub{ margin:10px 0 0; color:var(--muted); font-size:16px; max-width:70ch; }
+    .ctaRow{ margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:11px 14px; border-radius:12px; border:1px solid var(--line); background:#fff; color:var(--text); text-decoration:none; font-weight:700; }
+    .btnPrimary{ background:var(--accent); border-color:var(--accent); color:#fff; }
+    .grid{ margin-top:16px; display:grid; grid-template-columns:1fr; gap:12px; }
+    @media(min-width:900px){ .grid{ grid-template-columns:1fr 1fr; } }
+    .card{ border:1px solid var(--line); background:var(--card); border-radius:16px; padding:18px; }
+    .card h2{ margin:0 0 6px; font-size:18px; letter-spacing:-0.01em; }
+    .price{ font-size:28px; font-weight:900; margin:6px 0 0; }
+    ul{ margin:10px 0 0 18px; color:var(--muted); }
+    .note{ margin-top:12px; padding:12px; border:1px dashed var(--line); border-radius:14px; color:var(--muted); background:#fff; }
+    .section{ margin-top:22px; }
+    .section h3{ margin:0 0 8px; font-size:16px; }
+    .twoCol{ display:grid; grid-template-columns:1fr; gap:12px; }
+    @media(min-width:900px){ .twoCol{ grid-template-columns:1fr 1fr; } }
+    .small{ font-size:13px; color:var(--muted); }
+    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:12px; }
+    footer{ margin-top:26px; border-top:1px solid var(--line); padding-top:14px; color:var(--muted); font-size:12px; }
+    .hidden{ display:none; }
+  </style>
+</head>
+
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">Lac Amico Private Club</div>
+
+    <div class="lang" aria-label="Language toggle">
+      <span class="pill" data-i18n="badge">Invitation only • Limited to 30 members</span>
+      <button id="btnFr" class="active" type="button" aria-pressed="true">FR</button>
+      <button id="btnEn" type="button" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1 data-i18n="h1">A place you return to.<br/>Not a place you book.</h1>
+    <p class="sub" data-i18n="heroSub">
+      Membership privé donnant accès prioritaire à un chalet calme et haut de gamme dans les Laurentides.
+      Les nuits incluses sont réservées aux périodes basse & mi-saison (pour protéger les dates premium).
+    </p>
+
+    <div class="ctaRow">
+      <a class="btn btnPrimary" href="#plans" data-i18n="ctaPlans">Voir les memberships</a>
+      <a class="btn" href="#request" data-i18n="ctaRequest">Demander l’accès</a>
+    </div>
+
+    <div class="note" data-i18n="note">
+      <b>Important :</b> ce programme n’est pas une promo. Les avantages sont conditionnels et soumis aux règles et disponibilités.
+      Frais de ménage en sus. Blackout dates strictes.
+    </div>
+  </div>
+
+  <div id="plans" class="section">
+    <h3 data-i18n="plansTitle">Memberships</h3>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Insider</h2>
+        <div class="price">1 800 $ <span class="small" data-i18n="perYear">/ an</span></div>
+        <ul>
+          <li data-i18n="ins1">2 nu
