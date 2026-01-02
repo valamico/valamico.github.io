@@ -335,24 +335,25 @@
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding:8px 10px;
+  padding:8px 12px;
   border-radius:999px;
-  background:rgba(243,215,166,.12);
-  border:1px solid rgba(243,215,166,.35);
-  color:#F3D7A6;
-  font-weight:800;
+  background:#FFF7E6;              /* light warm background */
+  border:1px solid #E6C98B;        /* soft gold border */
+  color:#7A5A1A;                   /* dark bronze text (high contrast) */
+  font-weight:900;
   letter-spacing:.2px;
   margin:10px 0 6px;
 }
 .incl-chip small{
   opacity:.9;
-  font-weight:700;
+  font-weight:800;
 }
-/* Make audience badge more readable */
+
+/* Audience badge readability */
 .badge{
-  color:#F3D7A6 !important;
-  border-color:rgba(243,215,166,.35) !important;
-  background:rgba(15,23,42,.12) !important;
+  color:#7A5A1A !important;
+  border-color:#E6C98B !important;
+  background:#FFF7E6 !important;
 }
 
 </style>
@@ -491,6 +492,11 @@ document.getElementById("y").textContent = new Date().getFullYear();
 
   const i18n = {
     fr: {
+    social_title: "Un club discret, pensé pour durer",
+    social_1: "Capacité volontairement limitée pour préserver le calme et la disponibilité",
+    social_2: "Accès réservé à d’anciens guests et invités",
+    social_3: "Utilisé comme lieu de retour régulier (repos, couple, télétravail)",
+    social_note: "Ce club n’est pas conçu pour maximiser l’occupation, mais pour protéger l’expérience de ceux qui y reviennent.",
       top_apply: "Demander l’accès",
       top_faq: "Questions fréquentes",
       hero_kicker: "Accès privé • Places limitées • Séjours inclus hors pics",
@@ -551,6 +557,11 @@ document.getElementById("y").textContent = new Date().getFullYear();
       close: "Fermer"
     },
     en: {
+    social_title: "A discreet club, built to last",
+    social_1: "Intentionally limited capacity to protect calm and availability",
+    social_2: "Access reserved for past guests and invited members",
+    social_3: "Used as a regular return place (rest, couple time, remote work)",
+    social_note: "This club is not designed to maximize occupancy, but to protect the experience of those who return.",
       top_apply: "Request access",
       top_faq: "FAQ",
       hero_kicker: "Private access • Limited spots • Included off‑peak stays",
