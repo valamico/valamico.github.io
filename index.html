@@ -1,718 +1,462 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lac Amico Private Club</title>
-  <meta name="description" content="Private membership with priority access to a calm premium chalet in the Laurentians. Invitation only." />
+  <meta name="description" content="Un accès privé et limité à Lac Amico, pour revenir en basse et mi-saison dans un lieu familier, calme et premium." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@350;450;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --forest:#1B3022;
       --cream:#F9F7F2;
       --bronze:#B08D57;
-      --bronze2:#8B6B3F;
-      --line:rgba(27,48,34,.18);
-      --shadow: 0 18px 50px rgba(15, 23, 42, .10);
-      --radius: 22px;
+      --ink:#0f1b14;
+      --muted: rgba(249,247,242,.80);
+      --card: rgba(249,247,242,.92);
+      --shadow: 0 18px 45px rgba(0,0,0,.18);
+      --radius: 18px;
     }
-
-    *{ box-sizing:border-box; }
+    *{box-sizing:border-box}
     body{
       margin:0;
-      background: var(--cream);
-      color: var(--forest);
-      font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--forest);
+      color:var(--cream);
+      line-height:1.55;
     }
-    a{ color: inherit; }
-
-    .wrap{ max-width: 1120px; margin: 0 auto; padding: 26px 18px 80px; }
-
-    header{
-      display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
-      padding: 6px 4px 10px;
+    a{color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .topbar{
+      position:fixed; top:0; left:0; right:0;
+      z-index:50;
+      background:linear-gradient(to bottom, rgba(27,48,34,.92), rgba(27,48,34,.55), rgba(27,48,34,0));
+      backdrop-filter:saturate(140%) blur(6px);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 0;
     }
     .brand{
-      font-family: "Playfair Display", serif;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      font-size: 20px;
-      display:flex; align-items:baseline; gap:10px;
+      display:flex; gap:10px; align-items:baseline;
+      font-family:"Playfair Display", serif;
+      letter-spacing:.4px;
     }
-    .brand .dot{
-      display:inline-block; width:10px; height:10px; border-radius:999px;
-      background: radial-gradient(circle at 30% 30%, #e9d7b7, var(--bronze));
-      box-shadow: 0 8px 18px rgba(176,141,87,.35);
-      transform: translateY(-2px);
-    }
-    .right{
-      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
-    }
+    .brand b{font-weight:600}
     .pill{
-      display:inline-flex; align-items:center; gap:10px;
-      border:1px solid var(--line);
-      background: rgba(249,247,242,.60);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: rgba(27,48,34,.85);
-      backdrop-filter: blur(6px);
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border:1px solid rgba(249,247,242,.25);
+      border-radius:999px;
+      background:rgba(15,27,20,.28);
+      font-size:12px;
+      color:rgba(249,247,242,.92);
+      text-decoration:none;
     }
-
-    .lang{ display:flex; gap:8px; align-items:center; }
-    .lang button{
-      padding: 8px 10px;
-      border-radius: 12px;
-      border:1px solid var(--line);
-      background: rgba(249,247,242,.85);
-      cursor:pointer;
-      font-weight:700;
-      color: rgba(27,48,34,.85);
-    }
-    .lang button.active{
-      background: var(--forest);
-      border-color: var(--forest);
-      color: var(--cream);
-    }
-
+    .pill:hover{border-color:rgba(176,141,87,.65)}
     .hero{
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--line);
-      min-height: 520px;
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      background: #0b1510;
-    }
-    @media(max-width: 980px){
-      .hero{ grid-template-columns: 1fr; min-height: 640px; }
-    }
-
-    .heroMedia{
+      min-height:100vh;
+      display:flex;
+      align-items:flex-end;
+      padding:110px 0 56px;
       position:relative;
-      min-height: 520px;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.65)),
-        url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      overflow:hidden;
     }
-    .heroMedia::after{
+    .hero::before{
       content:"";
       position:absolute; inset:0;
-      background: radial-gradient(1200px 520px at 30% 20%, rgba(176,141,87,.20), transparent 60%);
+      background:
+        linear-gradient(180deg, rgba(27,48,34,.35) 0%, rgba(27,48,34,.55) 50%, rgba(27,48,34,.92) 100%),
+        url("assets/pro-2/36_twilight-1-1.jpg") center/cover no-repeat;
+      transform:scale(1.02);
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(70% 60% at 50% 20%, rgba(176,141,87,.12), rgba(0,0,0,0) 60%);
       pointer-events:none;
     }
-
-    .heroContent{
-      padding: 34px 32px 30px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      gap: 18px;
-      background:
-        radial-gradient(800px 520px at 80% 20%, rgba(176,141,87,.18), transparent 55%),
-        linear-gradient(180deg, rgba(249,247,242,.92), rgba(249,247,242,.86));
-      color: var(--forest);
+    .hero-content{
+      position:relative;
+      width:100%;
     }
-
     .kicker{
-      font-size: 12px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: rgba(27,48,34,.75);
-      display:flex;
-      gap:10px;
-      align-items:center;
+      display:inline-flex; gap:10px; align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(15,27,20,.40);
+      border:1px solid rgba(249,247,242,.20);
+      color:rgba(249,247,242,.90);
+      font-size:13px;
     }
-    .kicker .line{
-      flex:1;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(27,48,34,.12), rgba(176,141,87,.55), rgba(27,48,34,.12));
-      border-radius: 999px;
-    }
-
     h1{
-      margin: 10px 0 0;
-      font-family: "Playfair Display", serif;
-      font-weight: 800;
-      font-size: 44px;
-      line-height: 1.02;
-      letter-spacing: -0.03em;
-      color: var(--forest);
+      margin:16px 0 10px;
+      font-family:"Playfair Display", serif;
+      font-size:clamp(34px, 5vw, 56px);
+      line-height:1.08;
+      letter-spacing:.2px;
     }
-    @media(max-width: 520px){ h1{ font-size: 38px; } }
-
-    .sub{
-      margin: 12px 0 0;
-      font-size: 16px;
-      line-height: 1.55;
-      color: rgba(27,48,34,.80);
-      max-width: 68ch;
+    .lead{
+      max-width:720px;
+      font-size:clamp(15px, 2vw, 18px);
+      color:var(--muted);
+      margin:0 0 22px;
     }
-
-    .ctaRow{ margin-top: 18px; display:flex; gap:10px; flex-wrap:wrap; }
-
-    .btn{
-      display:inline-flex;
+    .cta-row{
+      display:flex; flex-wrap:wrap; gap:12px;
       align-items:center;
-      justify-content:center;
-      gap: 10px;
-      padding: 12px 16px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(249,247,242,.90);
+      margin-top:18px;
+    }
+    .btn{
+      appearance:none; border:0; cursor:pointer;
+      padding:12px 16px;
+      border-radius:999px;
+      font-weight:600;
+      letter-spacing:.2px;
       text-decoration:none;
-      font-weight: 700;
-      color: var(--forest);
-      transition: transform .08s ease, box-shadow .18s ease, background .18s ease;
-      will-change: transform;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+      will-change:transform;
     }
-    .btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 26px rgba(27,48,34,.12); }
-    .btnPrimary{
-      background: linear-gradient(135deg, var(--forest), #0f251a);
-      color: var(--cream);
-      border-color: rgba(27,48,34,.55);
+    .btn-primary{
+      background:linear-gradient(180deg, rgba(176,141,87,1), rgba(143,112,68,1));
+      color:rgba(15,27,20,1);
+      box-shadow:0 18px 35px rgba(0,0,0,.25);
     }
-    .btnGold{
-      background: linear-gradient(135deg, rgba(176,141,87,.95), rgba(139,107,63,.95));
-      color: #1b140b;
-      border-color: rgba(139,107,63,.55);
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-ghost{
+      background:rgba(15,27,20,.35);
+      border:1px solid rgba(249,247,242,.25);
+      color:rgba(249,247,242,.92);
     }
-
-    .note{
-      margin-top: 16px;
-      padding: 14px 14px;
-      border-radius: 16px;
-      border: 1px dashed rgba(27,48,34,.28);
-      background: rgba(249,247,242,.75);
-      color: rgba(27,48,34,.82);
-      font-size: 13px;
-      line-height: 1.5;
+    .btn-ghost:hover{border-color:rgba(176,141,87,.75); transform:translateY(-1px)}
+    .section{
+      padding:70px 0;
+      background:linear-gradient(180deg, rgba(27,48,34,1) 0%, rgba(20,36,26,1) 100%);
     }
-
-    .section{ margin-top: 26px; }
-    .sectionTitle{
-      display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      margin: 0 0 10px;
+    .section.alt{
+      background:linear-gradient(180deg, rgba(20,36,26,1) 0%, rgba(27,48,34,1) 100%);
     }
-    .sectionTitle h2{
-      margin: 0;
-      font-family: "Playfair Display", serif;
-      font-size: 22px;
-      letter-spacing: -0.02em;
-    }
-    .sectionTitle .hint{
-      color: rgba(27,48,34,.70);
-      font-size: 13px;
-    }
-
     .grid{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      gap:18px;
     }
-    @media(max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
-
+    .two{
+      grid-template-columns: 1.15fr .85fr;
+    }
+    .three{
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 960px){
+      .two{grid-template-columns:1fr}
+      .three{grid-template-columns:1fr}
+    }
     .card{
-      border: 1px solid var(--line);
-      background: rgba(249,247,242,.80);
-      border-radius: var(--radius);
-      box-shadow: 0 16px 44px rgba(27,48,34,.06);
+      background:var(--card);
+      color:var(--ink);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
       overflow:hidden;
+      border:1px solid rgba(15,27,20,.10);
     }
-    .cardTop{
-      padding: 18px 18px 10px;
-      display:flex; justify-content:space-between; align-items:flex-start; gap:14px; flex-wrap:wrap;
+    .card-pad{padding:18px 18px 16px}
+    .card h3{
+      margin:0 0 8px;
+      font-family:"Playfair Display", serif;
+      font-size:22px;
     }
-    .tag{
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(27,48,34,.08);
-      border: 1px solid rgba(27,48,34,.10);
-      color: rgba(27,48,34,.78);
-      font-weight: 700;
+    .card p{margin:0;color:rgba(15,27,20,.80)}
+    .divider{height:1px;background:rgba(15,27,20,.10);margin:14px 0}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(27,48,34,.08);
+      border:1px solid rgba(27,48,34,.12);
+      font-size:12px;
+      color:rgba(15,27,20,.78);
     }
     .price{
-      font-family: "Playfair Display", serif;
-      font-weight: 800;
-      font-size: 34px;
-      letter-spacing: -0.02em;
-      margin: 4px 0 0;
-      color: var(--forest);
+      display:flex; align-items:baseline; gap:10px;
+      margin-top:10px;
     }
-    .per{
-      font-family: "Montserrat", sans-serif;
-      font-size: 13px;
-      font-weight: 650;
-      color: rgba(27,48,34,.70);
+    .price b{
+      font-size:26px;
+      font-family:"Playfair Display", serif;
+      color:rgba(15,27,20,1);
     }
-    .cardBody{
-      padding: 0 18px 18px;
-      color: rgba(27,48,34,.80);
+    .price span{color:rgba(15,27,20,.68);font-size:13px}
+    .media{
+      height:210px;
+      background:#ddd center/cover no-repeat;
     }
-    .cardBody ul{ margin: 10px 0 0 18px; }
-    .cardBody li{ margin: 6px 0; }
-
-    .cardMedia{
-      height: 180px;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.18)),
-        url("https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
-      border-bottom: 1px solid var(--line);
+    .media.insider{background-image:url("assets/pro-2/25_terrasse-1-1.jpg")}
+    .media.signature{background-image:url("assets/pro-2/12_salon-1-1.jpg")}
+    .list{
+      margin:12px 0 0;
+      padding-left:18px;
+      color:rgba(15,27,20,.82);
     }
-    .cardMedia.sig{
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.18)),
-        url("https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
-    }
-
-    .twoCol{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    @media(max-width: 900px){ .twoCol{ grid-template-columns: 1fr; } }
-
+    .list li{margin:6px 0}
     .gallery{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 14px;
-      margin-top: 12px;
+      grid-template-columns:1.2fr .8fr;
+      gap:16px;
     }
-    @media(max-width: 980px){ .gallery{ grid-template-columns: 1fr; } }
-    .g1,.g2,.g3{
-      border-radius: var(--radius);
+    .gallery .left{
+      border-radius:var(--radius);
       overflow:hidden;
-      border: 1px solid var(--line);
-      box-shadow: 0 16px 44px rgba(27,48,34,.06);
-      background-size: cover;
-      background-position:center;
-      min-height: 260px;
-      position:relative;
+      min-height:420px;
+      background:
+        linear-gradient(180deg, rgba(27,48,34,.00) 0%, rgba(27,48,34,.70) 100%),
+        url("assets/pro-2/30_exterieur-1-4.jpg") center/cover no-repeat;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(249,247,242,.12);
     }
-    .g1{
-      background-image:
-        linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.45)),
-        url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80");
-      min-height: 340px;
+    .gallery .right{
+      display:grid;
+      grid-template-rows:1fr 1fr;
+      gap:16px;
     }
-    .g2{
-      background-image:
-        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.35)),
-        url("https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1600&q=80");
+    .gbox{
+      border-radius:var(--radius);
+      overflow:hidden;
+      min-height:202px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(249,247,242,.12);
     }
-    .g3{
-      background-image:
-        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.35)),
-        url("https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80");
+    .g1{background:url("assets/pro-2/26_terrasse-1-2.jpg") center/cover no-repeat}
+    .g2{background:url("assets/pro-2/13_salon-1-2.jpg") center/cover no-repeat}
+    .fineprint{
+      color:rgba(249,247,242,.78);
+      font-size:12.5px;
+      margin-top:12px;
+      max-width:840px;
     }
-    .gText{
-      position:absolute; left:16px; right:16px; bottom:14px;
-      color: rgba(249,247,242,.95);
-      font-weight: 650;
-      text-shadow: 0 10px 30px rgba(0,0,0,.35);
-      max-width: 60ch;
+    .faq details{
+      background:rgba(249,247,242,.08);
+      border:1px solid rgba(249,247,242,.14);
+      border-radius:14px;
+      padding:14px 14px;
     }
-    .gText b{
-      font-family: "Playfair Display", serif;
-      font-size: 20px;
-      font-weight: 800;
-      display:block;
-      margin-bottom: 6px;
-      letter-spacing: -0.02em;
+    .faq summary{
+      cursor:pointer;
+      font-weight:600;
+      color:rgba(249,247,242,.95);
+      list-style:none;
     }
-    .gText span{
-      font-size: 13px;
-      color: rgba(249,247,242,.88);
-      line-height: 1.45;
-    }
-
+    .faq summary::-webkit-details-marker{display:none}
+    .faq p{margin:10px 0 0; color:rgba(249,247,242,.82)}
     footer{
-      margin-top: 26px;
-      border-top: 1px solid var(--line);
-      padding-top: 14px;
-      color: rgba(27,48,34,.72);
-      font-size: 12px;
-      line-height: 1.6;
+      padding:42px 0;
+      background:rgba(15,27,20,1);
+      color:rgba(249,247,242,.78);
+      font-size:13px;
     }
+    .footer-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+    .small-link{color:rgba(249,247,242,.85);text-decoration:none;border-bottom:1px solid rgba(249,247,242,.22)}
+    .small-link:hover{border-bottom-color:rgba(176,141,87,.8)}
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand"><span class="dot"></span> Lac Amico Private Club</div>
-
-      <div class="right">
-        <span class="pill" data-i18n="badge">Invitation only • Limited to 30 members</span>
-        <div class="lang" aria-label="Language toggle">
-          <button id="btnFr" class="active" type="button" aria-pressed="true">FR</button>
-          <button id="btnEn" type="button" aria-pressed="false">EN</button>
-        </div>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <b>Lac Amico</b><span style="opacity:.82">Private Club</span>
       </div>
-    </header>
-
-    <section class="hero" aria-label="Hero">
-      <div class="heroMedia" role="img" aria-label="Nature retreat"></div>
-
-      <div class="heroContent">
-        <div>
-          <div class="kicker">
-            <span data-i18n="kicker">Un membership privé</span>
-            <span class="line"></span>
-          </div>
-
-          <h1 data-i18n="h1">A place you return to.<br/>Not a place you book.</h1>
-
-          <p class="sub" data-i18n="heroSub">
-            Membership privé donnant accès prioritaire à un chalet calme et haut de gamme dans les Laurentides.
-            Les nuits incluses sont réservées aux périodes basse & mi-saison (pour protéger les dates premium).
-          </p>
-
-          <div class="ctaRow">
-            <a class="btn btnPrimary" href="#plans" data-i18n="ctaPlans">Voir les memberships</a>
-            <a class="btn btnGold" href="#request" data-i18n="ctaRequest">Demander l’accès</a>
-          </div>
-
-          <div class="note" data-i18n="note">
-            <b>Important :</b> ce programme n’est pas une promo. Les avantages sont conditionnels et soumis aux règles et disponibilités.
-            Frais de ménage en sus. Blackout dates strictes.
-          </div>
-        </div>
-
-        <div class="pill" style="justify-content:space-between; gap:10px;">
-          <span data-i18n="pillLeft">Pensé pour des séjours calmes</span>
-          <span style="color:rgba(27,48,34,.55);">•</span>
-          <span data-i18n="pillRight">Accès basse & mi-saison</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="plans">
-      <div class="sectionTitle">
-        <h2 data-i18n="plansTitle">Memberships</h2>
-        <div class="hint" data-i18n="plansHint">Limited to 30 members • Invitation-led</div>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <div class="cardMedia" aria-hidden="true"></div>
-
-          <div class="cardTop">
-            <div>
-              <div class="tag" data-i18n="tagInsider">Idéal pour 1–2 séjours</div>
-              <h3 style="margin:10px 0 0; font-family:'Playfair Display', serif; font-size:22px;">Insider</h3>
-              <div class="price">1 800 $ <span class="per" data-i18n="perYear">/ an</span></div>
-            </div>
-            <div class="ctaRow" style="margin-top:0;">
-              <a class="btn btnPrimary" href="https://buy.stripe.com/aFa4gz0As2IacGv0V3fAc00" target="_blank" rel="noopener" data-i18n="payStripe">Payer (Stripe)</a>
-            </div>
-          </div>
-
-          <div class="cardBody">
-            <ul>
-              <li data-i18n="ins1">2 nuits incluses</li>
-              <li data-i18n="ins2">Basse & mi-saison (dim → jeu)</li>
-              <li data-i18n="ins3">Frais de ménage en sus</li>
-              <li data-i18n="ins4">Blackout : été, relâche, fêtes, longs week-ends</li>
-            </ul>
-            <div class="ctaRow">
-              <a class="btn" href="#blackouts" data-i18n="seeBlackouts">Voir blackout dates</a>
-              <a class="btn btnGold" href="#request" data-i18n="requestDates">Demander des dates</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="cardMedia sig" aria-hidden="true"></div>
-
-          <div class="cardTop">
-            <div>
-              <div class="tag" style="background:rgba(176,141,87,.14); border-color:rgba(176,141,87,.22);" data-i18n="tagSignature">Priorité + last-minute</div>
-              <h3 style="margin:10px 0 0; font-family:'Playfair Display', serif; font-size:22px;">Signature</h3>
-              <div class="price">3 900 $ <span class="per" data-i18n="perYear">/ an</span></div>
-            </div>
-            <div class="ctaRow" style="margin-top:0;">
-              <a class="btn btnPrimary" href="https://buy.stripe.com/aFa6oHdnegz035VgU1fAc01" target="_blank" rel="noopener" data-i18n="payStripe">Payer (Stripe)</a>
-            </div>
-          </div>
-
-          <div class="cardBody">
-            <ul>
-              <li data-i18n="sig1">5 nuits incluses (max 2 séjours)</li>
-              <li data-i18n="sig2">Accès last-minute (J-10) selon disponibilité</li>
-              <li data-i18n="sig3">Frais de ménage en sus</li>
-              <li data-i18n="sig4">Blackout strict (last-minute seulement, non garanti)</li>
-            </ul>
-            <div class="ctaRow">
-              <a class="btn" href="#blackouts" data-i18n="seeBlackouts">Voir blackout dates</a>
-              <a class="btn btnGold" href="#request" data-i18n="requestDates">Demander des dates</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="blackouts">
-      <div class="sectionTitle">
-        <h2 data-i18n="blackoutsTitle">Blackout dates (QC + ON)</h2>
-        <div class="hint" data-i18n="blackoutsHint">Peak periods are protected by design</div>
-      </div>
-
-      <div class="twoCol">
-        <div class="card">
-          <div class="cardTop">
-            <div>
-              <div class="tag" data-i18n="blockedTitle">Périodes bloquées</div>
-              <h3 style="margin:10px 0 0; font-family:'Playfair Display', serif; font-size:20px;" data-i18n="blockedH">Aucune nuit incluse</h3>
-            </div>
-          </div>
-          <div class="cardBody">
-            <ul>
-              <li data-i18n="b1"><b>Été :</b> 20 juin → 5 septembre (inclus)</li>
-              <li data-i18n="b2"><b>Fêtes :</b> 15 décembre → 5 janvier (inclus)</li>
-              <li data-i18n="b3"><b>Relâche (QC + ON) :</b> 1er mars → 15 mars (inclus)</li>
-            </ul>
-            <div class="note" data-i18n="blockedNote">
-              Objectif : protéger les dates à forte demande sur Airbnb.
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="cardTop">
-            <div>
-              <div class="tag" style="background:rgba(176,141,87,.14); border-color:rgba(176,141,87,.22);" data-i18n="rulesTitle">Règles d’usage</div>
-              <h3 style="margin:10px 0 0; font-family:'Playfair Display', serif; font-size:20px;" data-i18n="rulesH">Accès contrôlé</h3>
-            </div>
-          </div>
-          <div class="cardBody">
-            <ul>
-              <li data-i18n="r1">Par défaut : <b>Dim → Jeu</b></li>
-              <li data-i18n="r2">Vend/Sam exclus (sauf exceptions)</li>
-              <li data-i18n="r3"><b>Signature :</b> last-minute J-10 possible selon disponibilité (non garanti)</li>
-              <li data-i18n="r4">Le calendrier propriétaire fait foi</li>
-            </ul>
-            <div class="note" data-i18n="holidayNote">
-              <b>Note longs week-ends :</b> Les week-ends fériés (QC/ON) sont exclus par défaut pour protéger l’ADR.
-              Exceptions possibles au cas par cas (Signature, last-minute).
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery" aria-label="Gallery">
-        <div class="g1">
-          <div class="gText" data-i18n="g1">
-            <b>Silence, forêt, et temps ralenti</b>
-            <span>Pour ceux qui veulent revenir au même endroit, sans recommencer la recherche à chaque fois.</span>
-          </div>
-        </div>
-        <div style="display:grid; grid-template-rows: 1fr 1fr; gap:14px;">
-          <div class="g2">
-            <div class="gText" data-i18n="g2">
-              <b>Un rituel de week-end</b>
-              <span>Des séjours calmes, pensés pour respirer, lire, marcher, se reconnecter.</span>
-            </div>
-          </div>
-          <div class="g3">
-            <div class="gText" data-i18n="g3">
-              <b>La sensation “comme à soi”</b>
-              <span>Un lieu familier, un standard constant, une expérience sans friction.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="request">
-      <div class="sectionTitle">
-        <h2 data-i18n="requestTitle">Demander l’accès / Demander des dates</h2>
-        <div class="hint" data-i18n="requestHint">We reply within 24–48h</div>
-      </div>
-
-      <div class="card">
-        <div class="cardTop">
-          <div>
-            <div class="tag" data-i18n="requestTag">Accès & demandes de dates</div>
-            <h3 style="margin:10px 0 0; font-family:'Playfair Display', serif; font-size:20px;" data-i18n="requestH">Formulaire officiel</h3>
-            <p class="sub" style="margin:10px 0 0;" data-i18n="requestSub">
-              Utilise ce formulaire pour : (1) demander une invitation, ou (2) proposer des dates (si tu es déjà membre).
-            </p>
-          </div>
-          <div class="ctaRow" style="margin-top:0;">
-            <a class="btn btnGold" href="https://forms.gle/HWtzhaVW2pRYXQHj8" target="_blank" rel="noopener" data-i18n="openForm">Ouvrir le Google Form</a>
-            <a class="btn" href="mailto:val.lacamico@gmail.com?subject=Lac%20Amico%20Private%20Club%20-%20Question" data-i18n="emailUs">Envoyer un email</a>
-          </div>
-        </div>
-
-        <div class="cardBody">
-          <p style="margin: 0; color: rgba(27,48,34,.78);" data-i18n="formTip">
-            Conseil : propose 2 options de dates (Option #1 et Option #2). La confirmation dépend de la disponibilité et des règles (blackout dates, jours autorisés).
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div data-i18n="legal">
-        <b>Legal:</b> This is a private membership/loyalty program. It is not a lease, not a timeshare, and benefits are conditional.
-      </div>
-      <div>© Lac Amico Private Club • <a href="mailto:val.lacamico@gmail.com">val.lacamico@gmail.com</a></div>
-    </footer>
+      <a class="pill" href="#apply">Demander l’accès</a>
+    </div>
   </div>
 
-<script>
-  const i18n = {
-    fr: {
-      badge: "Invitation only • Limited to 30 members",
-      kicker: "Un membership privé",
-      h1: "A place you return to.<br/>Not a place you book.",
-      heroSub: "Membership privé donnant accès prioritaire à un chalet calme et haut de gamme dans les Laurentides. Les nuits incluses sont réservées aux périodes basse & mi-saison (pour protéger les dates premium).",
-      ctaPlans: "Voir les memberships",
-      ctaRequest: "Demander l’accès",
-      note: "<b>Important :</b> ce programme n’est pas une promo. Les avantages sont conditionnels et soumis aux règles et disponibilités. Frais de ménage en sus. Blackout dates strictes.",
-      pillLeft: "Pensé pour des séjours calmes",
-      pillRight: "Accès basse & mi-saison",
+  <header class="hero">
+    <div class="container hero-content">
+      <span class="kicker">Accès privé • Places limitées • Basse & mi-saison</span>
+      <h1>Revenir, sans recommencer.</h1>
+      <p class="lead">
+        Lac Amico Private Club est un membership réservé à quelques anciens guests et invités,
+        conçu pour ceux qui recherchent un lieu familier — calme, forêt, lumière — où revenir facilement.
+      </p>
 
-      plansTitle: "Memberships",
-      plansHint: "Limité à 30 membres • Sur invitation",
-      tagInsider: "Idéal pour 1–2 séjours",
-      tagSignature: "Priorité + last-minute",
-      perYear: "/ an",
-      payStripe: "Payer (Stripe)",
-      seeBlackouts: "Voir blackout dates",
-      requestDates: "Demander des dates",
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#apply">Demander l’accès</a>
+        <a class="btn btn-ghost" href="#tiers">Voir les memberships</a>
+      </div>
 
-      ins1: "2 nuits incluses",
-      ins2: "Basse & mi-saison (dim → jeu)",
-      ins3: "Frais de ménage en sus",
-      ins4: "Blackout : été, relâche, fêtes, longs week-ends",
+      <p class="fineprint">
+        Ce club n’est pas une offre publique. L’accès est accordé sur demande, selon disponibilité et respect des règles du club.
+      </p>
+    </div>
+  </header>
 
-      sig1: "5 nuits incluses (max 2 séjours)",
-      sig2: "Accès last-minute (J-10) selon disponibilité",
-      sig3: "Frais de ménage en sus",
-      sig4: "Blackout strict (last-minute seulement, non garanti)",
+  <section class="section" id="tiers">
+    <div class="container">
+      <div class="grid two">
+        <div>
+          <h2 style="font-family:'Playfair Display',serif;margin:0 0 10px;font-size:34px;line-height:1.1;">
+            Deux niveaux. Un même esprit : calme & respect.
+          </h2>
+          <p style="margin:0;color:rgba(249,247,242,.82);max-width:760px;">
+            Le membership te donne un cadre clair et un accès prioritaire sur certaines périodes.
+            Tu proposes tes dates, nous confirmons selon la disponibilité et les règles du club.
+          </p>
+        </div>
+        <div>
+          <span class="badge">Couples • Familles calmes • Télétravail</span>
+          <div class="divider" style="background:rgba(249,247,242,.14)"></div>
+          <p style="margin:0;color:rgba(249,247,242,.80);">
+            Ambiance premium, sans fêtes ni événements. Le club est pensé pour préserver l’expérience.
+          </p>
+        </div>
+      </div>
 
-      blackoutsTitle: "Blackout dates (QC + ON)",
-      blackoutsHint: "Les périodes premium sont protégées par design",
-      blockedTitle: "Périodes bloquées",
-      blockedH: "Aucune nuit incluse",
-      b1: "<b>Été :</b> 20 juin → 5 septembre (inclus)",
-      b2: "<b>Fêtes :</b> 15 décembre → 5 janvier (inclus)",
-      b3: "<b>Relâche (QC + ON) :</b> 1er mars → 15 mars (inclus)",
-      blockedNote: "Objectif : protéger les dates à forte demande sur Airbnb.",
+      <div class="grid three" style="margin-top:18px;">
+        <article class="card">
+          <div class="media insider"></div>
+          <div class="card-pad">
+            <h3>Insider</h3>
+            <p>Accès privé pour profiter de Lac Amico en basse & mi-saison, avec simplicité.</p>
 
-      rulesTitle: "Règles d’usage",
-      rulesH: "Accès contrôlé",
-      r1: "Par défaut : <b>Dim → Jeu</b>",
-      r2: "Vend/Sam exclus (sauf exceptions)",
-      r3: "<b>Signature :</b> last-minute J-10 possible selon disponibilité (non garanti)",
-      r4: "Le calendrier propriétaire fait foi",
-      holidayNote: "<b>Note longs week-ends :</b> Les week-ends fériés (QC/ON) sont exclus par défaut pour protéger l’ADR. Exceptions possibles au cas par cas (Signature, last-minute).",
+            <div class="price">
+              <b>Insider</b>
+              <span>Abonnement annuel</span>
+            </div>
 
-      g1: "<b>Silence, forêt, et temps ralenti</b><span>Pour ceux qui veulent revenir au même endroit, sans recommencer la recherche à chaque fois.</span>",
-      g2: "<b>Un rituel de week-end</b><span>Des séjours calmes, pensés pour respirer, lire, marcher, se reconnecter.</span>",
-      g3: "<b>La sensation “comme à soi”</b><span>Un lieu familier, un standard constant, une expérience sans friction.</span>",
+            <ul class="list">
+              <li>Accès prioritaire sur certaines périodes</li>
+              <li>Process simple : demande → confirmation</li>
+              <li>Règles claires pour préserver le calme</li>
+            </ul>
 
-      requestTitle: "Demander l’accès / Demander des dates",
-      requestHint: "Réponse sous 24–48h",
-      requestTag: "Accès & demandes de dates",
-      requestH: "Formulaire officiel",
-      requestSub: "Utilise ce formulaire pour : (1) demander une invitation, ou (2) proposer des dates (si tu es déjà membre).",
-      openForm: "Ouvrir le Google Form",
-      emailUs: "Envoyer un email",
-      formTip: "Conseil : propose 2 options de dates (Option #1 et Option #2). La confirmation dépend de la disponibilité et des règles (blackout dates, jours autorisés).",
+            <div class="divider"></div>
+            <a class="btn btn-primary" href="https://buy.stripe.com/aFa4gz0As2IacGv0V3fAc00" target="_blank" rel="noopener">
+              Souscrire Insider
+            </a>
+          </div>
+        </article>
 
-      legal: "<b>Legal:</b> This is a private membership/loyalty program. It is not a lease, not a timeshare, and benefits are conditional."
-    },
-    en: {
-      badge: "Invitation only • Limited to 30 members",
-      kicker: "A private membership",
-      h1: "A place you return to.<br/>Not a place you book.",
-      heroSub: "A private membership giving priority access to a calm, premium chalet in the Laurentians. Included nights are limited to off & mid-season periods to protect peak pricing.",
-      ctaPlans: "View memberships",
-      ctaRequest: "Request access",
-      note: "<b>Important:</b> this is not a discount program. Benefits are conditional and subject to rules and availability. Cleaning fees are extra. Strict blackout dates apply.",
-      pillLeft: "Designed for quiet stays",
-      pillRight: "Off & mid-season access",
+        <article class="card">
+          <div class="media signature"></div>
+          <div class="card-pad">
+            <h3>Signature</h3>
+            <p>Pour ceux qui veulent prioriser davantage leurs retours et sécuriser leur rythme d’évasion.</p>
 
-      plansTitle: "Memberships",
-      plansHint: "Limited to 30 members • Invitation only",
-      tagInsider: "Best for 1–2 getaways",
-      tagSignature: "Priority + last-minute",
-      perYear: "/ year",
-      payStripe: "Pay (Stripe)",
-      seeBlackouts: "See blackout dates",
-      requestDates: "Request dates",
+            <div class="price">
+              <b>Signature</b>
+              <span>Abonnement annuel</span>
+            </div>
 
-      ins1: "2 nights included",
-      ins2: "Off & mid-season (Sun → Thu)",
-      ins3: "Cleaning fees are extra",
-      ins4: "Blackout: summer, school break, holidays, long weekends",
+            <ul class="list">
+              <li>Priorité renforcée (selon disponibilité)</li>
+              <li>Expérience premium, sans compromis</li>
+              <li>Communication dédiée</li>
+            </ul>
 
-      sig1: "5 nights included (max 2 stays)",
-      sig2: "Last-minute access (D-10) subject to availability",
-      sig3: "Cleaning fees are extra",
-      sig4: "Strict blackout (last-minute only, not guaranteed)",
+            <div class="divider"></div>
+            <a class="btn btn-primary" href="https://buy.stripe.com/aFa6oHdnegz035VgU1fAc01" target="_blank" rel="noopener">
+              Souscrire Signature
+            </a>
+          </div>
+        </article>
 
-      blackoutsTitle: "Blackout dates (QC + ON)",
-      blackoutsHint: "Peak periods are protected by design",
-      blockedTitle: "Blocked periods",
-      blockedH: "No included nights",
-      b1: "<b>Summer:</b> June 20 → September 5 (inclusive)",
-      b2: "<b>Holidays:</b> December 15 → January 5 (inclusive)",
-      b3: "<b>School break (QC + ON):</b> March 1 → March 15 (inclusive)",
-      blockedNote: "Goal: protect peak-demand dates and pricing on Airbnb.",
+        <article class="card">
+          <div class="card-pad">
+            <h3>Comment ça marche</h3>
+            <p>En 60 secondes.</p>
+            <div class="divider"></div>
+            <ol style="margin:0;padding-left:18px;color:rgba(15,27,20,.82)">
+              <li>Tu demandes l’accès via le formulaire</li>
+              <li>Tu reçois une confirmation + règles</li>
+              <li>Tu proposes tes dates</li>
+              <li>On confirme selon disponibilité</li>
+            </ol>
+            <div class="divider"></div>
+            <a class="btn btn-ghost" style="display:inline-flex" href="#apply">Demander l’accès</a>
+            <p style="margin:12px 0 0;color:rgba(15,27,20,.70);font-size:12.5px;">
+              Le club est limité afin de protéger l’expérience pour tous.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-      rulesTitle: "Usage rules",
-      rulesH: "Controlled access",
-      r1: "Default: <b>Sun → Thu</b>",
-      r2: "Fri/Sat excluded (unless exceptions)",
-      r3: "<b>Signature:</b> last-minute D-10 may be available (not guaranteed)",
-      r4: "Owner calendar is the source of truth",
-      holidayNote: "<b>Long weekends:</b> QC/ON holiday long weekends are excluded by default to protect ADR. Some exceptions may open case-by-case (Signature, last-minute).",
+  <section class="section alt">
+    <div class="container">
+      <div class="gallery">
+        <div class="left"></div>
+        <div class="right">
+          <div class="gbox g1"></div>
+          <div class="gbox g2"></div>
+        </div>
+      </div>
 
-      g1: "<b>Quiet forest time</b><span>For people who want to return to the same place—without restarting the search every time.</span>",
-      g2: "<b>A weekend ritual</b><span>Slow mornings, long walks, books, and a familiar calm.</span>",
-      g3: "<b>Feels like yours</b><span>A consistent standard, a familiar space, and zero friction.</span>",
+      <p class="fineprint" style="margin-top:16px;">
+        Lac Amico Private Club privilégie les séjours calmes (pas d’événements). Les disponibilités et conditions sont confirmées après demande.
+      </p>
+    </div>
+  </section>
 
-      requestTitle: "Request access / Request dates",
-      requestHint: "We reply within 24–48h",
-      requestTag: "Access & date requests",
-      requestH: "Official form",
-      requestSub: "Use this form to (1) request an invitation, or (2) propose dates (if you are already a member).",
-      openForm: "Open Google Form",
-      emailUs: "Email us",
-      formTip: "Tip: provide 2 date options (Option #1 and Option #2). Confirmation depends on availability and program rules (blackout dates, allowed days).",
+  <section class="section" id="apply">
+    <div class="container">
+      <div class="grid two">
+        <div>
+          <h2 style="font-family:'Playfair Display',serif;margin:0 0 10px;font-size:34px;line-height:1.1;">
+            Demander l’accès
+          </h2>
+          <p style="margin:0;color:rgba(249,247,242,.82);max-width:760px;">
+            Remplis le formulaire (1 minute). Nous reviendrons vers toi rapidement avec la confirmation et les prochaines étapes.
+          </p>
 
-      legal: "<b>Legal:</b> This is a private membership/loyalty program. It is not a lease, not a timeshare, and benefits are conditional."
-    }
-  };
+          <div class="cta-row" style="margin-top:18px;">
+            <a class="btn btn-primary" href="https://forms.gle/HWtzhaVW2pRYXQHj8" target="_blank" rel="noopener">
+              Ouvrir le formulaire
+            </a>
+            <a class="btn btn-ghost" href="#faq">Questions fréquentes</a>
+          </div>
+        </div>
 
-  let lang = "fr";
-  function applyI18n() {
-    document.documentElement.lang = lang;
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-      const key = el.getAttribute("data-i18n");
-      if (i18n[lang][key]) el.innerHTML = i18n[lang][key];
-    });
-    document.getElementById("btnFr").classList.toggle("active", lang === "fr");
-    document.getElementById("btnEn").classList.toggle("active", lang === "en");
-    document.getElementById("btnFr").setAttribute("aria-pressed", lang === "fr");
-    document.getElementById("btnEn").setAttribute("aria-pressed", lang === "en");
-  }
-  document.getElementById("btnFr").addEventListener("click", () => { lang = "fr"; applyI18n(); });
-  document.getElementById("btnEn").addEventListener("click", () => { lang = "en"; applyI18n(); });
-  applyI18n();
-</script>
+        <div class="faq" id="faq">
+          <div class="grid" style="gap:12px;">
+            <details>
+              <summary>Est-ce une offre publique ?</summary>
+              <p>Non. Le club est limité et l’accès est accordé sur demande afin de préserver l’expérience.</p>
+            </details>
+
+            <details>
+              <summary>Comment les dates sont confirmées ?</summary>
+              <p>Tu proposes tes dates. Nous confirmons selon la disponibilité et le respect des règles du club.</p>
+            </details>
+
+            <details>
+              <summary>Pourquoi un membership ?</summary>
+              <p>Pour permettre aux membres de revenir plus facilement en basse & mi-saison, dans un cadre clair et premium.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-row">
+      <div>© <span id="y"></span> Lac Amico Private Club</div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+        <a class="small-link" href="#tiers">Memberships</a>
+        <a class="small-link" href="#apply">Demander l’accès</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
