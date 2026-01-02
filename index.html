@@ -356,6 +356,62 @@
   background:#FFF7E6 !important;
 }
 
+
+/* How it works */
+.how-grid{ display:grid; gap:12px; grid-template-columns:1fr; }
+@media(min-width:900px){ .how-grid{ grid-template-columns:1fr 1fr 1fr; } }
+.how-step{ display:flex; gap:12px; align-items:flex-start; padding:12px; border:1px solid var(--line); border-radius:14px; background:#fff; }
+.how-num{ width:30px; height:30px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-weight:900; background:#FFF7E6; border:1px solid #E6C98B; color:#7A5A1A; flex:0 0 auto; }
+.how-h{ font-weight:900; letter-spacing:-0.01em; }
+
+/* Modal header spacing on small screens */
+.modal-header{ gap:12px; }
+
+/* Payment reassurance */
+.pay-note{ margin-top:8px; }
+
+
+/* Signature-first conversion tuning */
+.rec-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#1f4fbf;
+  color:#fff;
+  font-weight:900;
+  letter-spacing:.2px;
+  font-size:12px;
+  margin-bottom:10px;
+}
+.card.signature{
+  border-color:#E6C98B;
+  background:linear-gradient(180deg,#ffffff,#FFF7E6);
+}
+.value-line{
+  margin:10px 0 0;
+  font-weight:900;
+  color:#7A5A1A;
+}
+.value-sub{
+  margin:6px 0 0;
+  color:#475569;
+  font-size:13px;
+}
+.card.signature .btn.btn-primary{
+  background:#1f4fbf;
+  border-color:#1f4fbf;
+  color:#fff;
+}
+.card.signature .btn.btn-primary:hover{ filter:brightness(.95); }
+.card.insider .btn.btn-primary{
+  background:#fff;
+  color:#1f4fbf;
+  border-color:#1f4fbf;
+}
+.card.insider .btn.btn-primary:hover{ background:#F8FAFF; }
+
 </style>
 </head>
 <body>
@@ -374,11 +430,42 @@
 <p class="lead" data-i18n="hero_lead">Lac Amico Private Club est un membership réservé à quelques anciens guests et invités, conçu pour ceux qui recherchent un lieu familier — calme, forêt, lumière — où revenir facilement.</p>
 <div class="cta-row">
 <a class="btn btn-primary" data-i18n="cta_apply" href="#apply">Demander l’accès</a>
-<a class="btn btn-ghost" data-i18n="cta_tiers" href="#tiers">Voir les memberships</a>
+<a class="btn btn-ghost" data-i18n="cta_tiers" href="#signature">Voir les memberships</a>
 </div>
 <p class="fineprint" data-i18n="hero_fineprint">Ce club n’est pas une offre publique. L’accès est accordé sur demande, selon disponibilité et respect des règles du club.</p>
 </div>
 </header>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="card">
+    <h2 data-i18n="how_title">Comment ça marche</h2>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <div>
+          <div class="how-h" data-i18n="how_1_t">Choisis ton niveau</div>
+          <div class="small" data-i18n="how_1_p">Insider (2 nuits) ou Signature (5 nuits) — hors périodes premium.</div>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <div>
+          <div class="how-h" data-i18n="how_2_t">Paiement sécurisé (Stripe)</div>
+          <div class="small" data-i18n="how_2_p">Tu reçois une confirmation + les instructions pour demander tes dates.</div>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <div>
+          <div class="how-h" data-i18n="how_3_t">Propose 2 options de dates</div>
+          <div class="small" data-i18n="how_3_p">On confirme selon disponibilité + règles du club (calme protégé).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="tiers">
 <div class="container">
 <div class="grid two">
@@ -393,31 +480,15 @@
 </div>
 </div>
 <div class="grid three" style="margin-top:18px;">
-<article class="card">
-<div class="media insider"></div>
-<div class="card-pad">
-<h3 data-i18n="ins_title">Insider</h3>
-<p data-i18n="ins_desc">Accès privé pour profiter de Lac Amico en basse &amp; mi-saison, avec simplicité.</p>
-<div class="incl-chip" data-i18n="ins_incl">✅ 2 nuits incluses <small>/ an</small></div>
-<div class="price">
-<b data-i18n="ins_price_label">Insider</b>
-<span data-i18n="annual_label">Abonnement annuel</span>
-</div>
-<ul class="list">
-<li data-i18n="ins_li1">Accès prioritaire sur certaines périodes</li>
-<li data-i18n="ins_li2">Process simple : demande → confirmation</li>
-<li data-i18n="ins_li3">Règles claires pour préserver le calme</li>
-</ul>
-<div class="divider"></div>
-<a class="btn btn-primary" data-i18n="ins_btn" href="https://buy.stripe.com/aFa4gz0As2IacGv0V3fAc00" rel="noopener" target="_blank">Souscrire Insider</a>
-</div>
-</article>
-<article class="card">
+<article class="card signature" id="signature">
 <div class="media signature"></div>
 <div class="card-pad">
+<div class="rec-badge" data-i18n="sig_badge">Recommandé</div>
 <h3 data-i18n="sig_title">Signature</h3>
 <p data-i18n="sig_desc">Pour ceux qui veulent prioriser davantage leurs retours et sécuriser leur rythme d’évasion.</p>
 <div class="incl-chip" data-i18n="sig_incl">✅ 5 nuits incluses <small>/ an</small></div>
+<div class="value-line" data-i18n="sig_value">Valeur sécurisée : accès + flexibilité</div>
+<div class="value-sub" data-i18n="sig_replace">Remplace : recherche + incertitude + dates déjà prises</div>
 <div class="price">
 <b data-i18n="sig_price_label">Signature</b>
 <span data-i18n="annual_label">Abonnement annuel</span>
@@ -429,6 +500,31 @@
 </ul>
 <div class="divider"></div>
 <a class="btn btn-primary" data-i18n="sig_btn" href="https://buy.stripe.com/aFa6oHdnegz035VgU1fAc01" rel="noopener" target="_blank">Souscrire Signature</a>
+<div class="small pay-note" data-i18n="pay_note">Paiement sécurisé via Stripe • Reçu envoyé par email</div>
+<div class="small pay-note" data-i18n="pay_note">Paiement sécurisé via Stripe • Reçu envoyé par email</div>
+</div>
+</article>
+<article class="card insider" id="insider">
+<div class="media insider"></div>
+<div class="card-pad">
+<h3 data-i18n="ins_title">Insider</h3>
+<p data-i18n="ins_desc">Accès privé pour profiter de Lac Amico en basse &amp; mi-saison, avec simplicité.</p>
+<div class="incl-chip" data-i18n="ins_incl">✅ 2 nuits incluses <small>/ an</small></div>
+<div class="value-line" data-i18n="ins_value">Valeur sécurisée : pauses planifiées</div>
+<div class="value-sub" data-i18n="ins_replace">Remplace : comparer 10 annonces à chaque fois</div>
+<div class="price">
+<b data-i18n="ins_price_label">Insider</b>
+<span data-i18n="annual_label">Abonnement annuel</span>
+</div>
+<ul class="list">
+<li data-i18n="ins_li1">Accès prioritaire sur certaines périodes</li>
+<li data-i18n="ins_li2">Process simple : demande → confirmation</li>
+<li data-i18n="ins_li3">Règles claires pour préserver le calme</li>
+</ul>
+<div class="divider"></div>
+<a class="btn btn-primary" data-i18n="ins_btn" href="https://buy.stripe.com/aFa4gz0As2IacGv0V3fAc00" rel="noopener" target="_blank">Souscrire Insider</a>
+<div class="small pay-note" data-i18n="pay_note">Paiement sécurisé via Stripe • Reçu envoyé par email</div>
+<div class="small pay-note" data-i18n="pay_note">Paiement sécurisé via Stripe • Reçu envoyé par email</div>
 </div>
 </article>
 <article class="card">
@@ -446,8 +542,7 @@
 <a class="btn btn-ghost" data-i18n="how_btn" href="#apply" style="display:inline-flex">Demander l’accès</a>
 <p data-i18n="how_note" style="margin:12px 0 0;color:rgba(15,27,20,.70);font-size:12.5px;">Le club est limité afin de protéger l’expérience pour tous.</p>
 </div>
-</article>
-</div>
+</article></div>
 </div>
 </section>
 <section class="section alt">
@@ -492,6 +587,13 @@ document.getElementById("y").textContent = new Date().getFullYear();
 
   const i18n = {
     fr: {
+    pay_note: "Paiement sécurisé via Stripe • Reçu envoyé par email",
+    social_note2: "La majorité des membres choisissent Signature pour la flexibilité et l’accès last‑minute.",
+    ins_replace: "Remplace : comparer 10 annonces à chaque fois",
+    ins_value: "Valeur sécurisée : pauses planifiées",
+    sig_replace: "Remplace : recherche + incertitude + dates déjà prises",
+    sig_value: "Valeur sécurisée : accès + flexibilité",
+    sig_badge: "Recommandé",
     social_title: "Un club discret, pensé pour durer",
     social_1: "Capacité volontairement limitée pour préserver le calme et la disponibilité",
     social_2: "Accès réservé à d’anciens guests et invités",
@@ -503,7 +605,7 @@ document.getElementById("y").textContent = new Date().getFullYear();
       hero_h1: "Revenir, sans recommencer.",
       hero_lead: "Lac Amico Private Club est un membership privé réservé à quelques anciens guests et invités. Il répond à un problème simple : <b>quand tu as besoin d’une vraie pause, les meilleures dates sont déjà parties</b>. <br/><br/>Ici, tu passes d’une location ponctuelle à une <b>certitude</b> : un lieu familier — calme, forêt, lumière — au même standard, avec un accès prioritaire et des nuits incluses hors périodes premium. <br/><br/><b>Moins de décisions. Plus de moments de qualité.</b>",
       cta_apply: "Demander l’accès",
-      cta_tiers: "Voir les memberships",
+      cta_tiers: "Voir Signature (recommandé)",
       hero_fineprint: "Ce club n’est pas une offre publique. L’accès est accordé sur demande, selon disponibilité et respect des règles du club.",
 
       video_h2: "Découvrir Lac Amico en vidéo",
@@ -511,7 +613,7 @@ document.getElementById("y").textContent = new Date().getFullYear();
       video_note: "Astuce : active le plein écran pour une meilleure immersion.",
 
       tiers_h2: "Deux niveaux. Une promesse : la certitude de revenir.",
-      tiers_p: "Choisis ton niveau, puis demande tes dates via le formulaire. Nous confirmons selon la disponibilité et les règles du club. <br/><br/><b>Pourquoi ça marche :</b> le club est limité, donc l’accès reste réellement prioritaire.",
+      tiers_p: "Choisis ton niveau, puis demande tes dates via le formulaire. Nous confirmons selon la disponibilité et les règles du club.<br/><br/><b>Recommandation :</b> Signature est le choix le plus populaire pour sa flexibilité.<br/><br/><b>Pourquoi ça marche :</b> le club est limité, donc l’accès reste réellement prioritaire.",
       audience_badge: "Couples • Familles calmes • Télétravail",
       audience_p: "<b>Pour les personnes qui veulent décrocher sans compromis.</b> Pas de fêtes, pas d’événements : la tranquillité fait partie du contrat social. Si tu cherches un endroit fiable pour te reposer, te recentrer ou travailler au calme, tu es au bon endroit.",
 
@@ -522,7 +624,7 @@ document.getElementById("y").textContent = new Date().getFullYear();
       ins_li1: "<b>2 nuits incluses</b> par an (basse & mi-saison)",
       ins_li2: "Accès prioritaire + process simple : demande → confirmation",
       ins_li3: "Règles anti-fêtes pour préserver le calme (expérience constante)",
-      ins_btn: "Souscrire Insider",
+      ins_btn: "Choisir Insider",
 
       sig_title: "Signature",
       sig_desc: "Pour ceux qui veulent plus de flexibilité et de certitude — même quand l’envie arrive à la dernière minute.",
@@ -530,7 +632,7 @@ document.getElementById("y").textContent = new Date().getFullYear();
       sig_li1: "<b>5 nuits incluses</b> par an (jusqu’à 2 séjours)",
       sig_li2: "Option <b>last‑minute</b> (J‑10) selon disponibilité (non garanti)",
       sig_li3: "Priorité sur annulations + accès plus flexible",
-      sig_btn: "Souscrire Signature",
+      sig_btn: "Choisir Signature (recommandé)",
 
       how_title: "Comment ça marche",
       how_sub: "En 60 secondes.",
@@ -557,6 +659,13 @@ document.getElementById("y").textContent = new Date().getFullYear();
       close: "Fermer"
     },
     en: {
+    pay_note: "Secure checkout via Stripe • Receipt sent by email",
+    social_note2: "Most members choose Signature for flexibility and last‑minute access.",
+    ins_replace: "Replaces: comparing 10 listings every time",
+    ins_value: "Locked-in value: planned resets",
+    sig_replace: "Replaces: searching + uncertainty + sold-out dates",
+    sig_value: "Locked-in value: access + flexibility",
+    sig_badge: "Recommended",
     social_title: "A discreet club, built to last",
     social_1: "Intentionally limited capacity to protect calm and availability",
     social_2: "Access reserved for past guests and invited members",
@@ -568,7 +677,7 @@ document.getElementById("y").textContent = new Date().getFullYear();
       hero_h1: "Come back—without starting over.",
       hero_lead: "Lac Amico Private Club is a private membership for a small circle of past guests and invited members. It solves a simple problem: <b>when you need a real reset, the best dates are already gone</b>.<br/><br/>Here you move from one‑off booking to <b>certainty</b>: a familiar place—calm, forest, light—with consistent premium standards, priority access, and included off‑peak nights.<br/><br/><b>Fewer decisions. More quality moments.</b>",
       cta_apply: "Request access",
-      cta_tiers: "View memberships",
+      cta_tiers: "View Signature (recommended)",
       hero_fineprint: "This is not a public offer. Access is granted upon request, subject to availability and club rules.",
 
       video_h2: "Watch a quick video tour",
@@ -576,7 +685,7 @@ document.getElementById("y").textContent = new Date().getFullYear();
       video_note: "Tip: use fullscreen for the best experience.",
 
       tiers_h2: "Two tiers. One promise: certainty you can return.",
-      tiers_p: "Choose your tier, then request dates via the form. We confirm based on availability and club rules.<br/><br/><b>Why it works:</b> the club is capped—so priority access stays real.",
+      tiers_p: "Choose your tier, then request dates via the form. We confirm based on availability and club rules.<br/><br/><b>Recommendation:</b> Signature is the most popular choice for flexibility.<br/><br/><b>Why it works:</b> the club is capped—so priority access stays real.",
       audience_badge: "Couples • Calm families • Remote work",
       audience_p: "<b>For people who want a true reset without compromise.</b> No parties, no events—quiet is part of the deal. If you want a reliable place to rest, recharge, or work in peace, you’re in the right place.",
 
@@ -587,7 +696,7 @@ document.getElementById("y").textContent = new Date().getFullYear();
       ins_li1: "<b>2 nights included</b> per year (off & mid‑season)",
       ins_li2: "Priority access + simple flow: request → confirmation",
       ins_li3: "No‑party rules to protect quiet (consistent experience)",
-      ins_btn: "Join Insider",
+      ins_btn: "Choose Insider",
 
       sig_title: "Signature",
       sig_desc: "For those who want more flexibility and certainty—even when the urge is last‑minute.",
@@ -595,7 +704,7 @@ document.getElementById("y").textContent = new Date().getFullYear();
       sig_li1: "<b>5 nights included</b> per year (up to 2 stays)",
       sig_li2: "<b>Last‑minute</b> option (D‑10) subject to availability (not guaranteed)",
       sig_li3: "Priority on cancellations + more flexible access",
-      sig_btn: "Join Signature",
+      sig_btn: "Choose Signature (recommended)",
 
       how_title: "How it works",
       how_sub: "60 seconds.",
@@ -626,15 +735,18 @@ document.getElementById("y").textContent = new Date().getFullYear();
   const faqContent = {
     fr: [
       {q:"Qu’est-ce que j’achète exactement ?", a:"Tu n’achètes pas “des nuits”. Tu achètes une <b>certitude</b> : pouvoir revenir à Lac Amico sans recommencer (recherche, messages, incertitude, dates déjà prises).<br/><br/><b>Concrètement :</b> un accès prioritaire + des nuits incluses hors périodes premium, avec un standard constant (calme, propreté, expérience).<br/><br/><b>Ce que tu évites :</b> rater les rares périodes vraiment calmes, payer plus en dernière minute, ou repousser ton break à “plus tard”.<br/><br/><b>Ce que tu obtiens :</b> un lieu fiable, prêt, pour décrocher vite — et revenir rechargé(e)."},
+      {q:"Et si mes 2 dates ne sont pas disponibles ?", a:"On te répond avec la meilleure alternative (ou on te demande 2 nouvelles options). Le but du club est justement de te faire gagner du temps — on t’aide à sécuriser une période qui te convient, sans repartir de zéro."},
+      {q:"Que se passe-t-il après le paiement ?", a:"Tu reçois un email de confirmation (Stripe) + les instructions. Ensuite, tu soumets 2 options de dates via le formulaire. On confirme rapidement selon la disponibilité et les règles du club. Simple, sans va-et-vient."},
       { q: "Pourquoi un membership ?", a: "Parce que le vrai problème n’est pas de trouver un chalet — c’est de <b>ne pas savoir si tu pourras revenir</b> au moment où tu en as besoin. Quand tu es prêt(e) à décrocher, les meilleures dates sont déjà prises, tu paies plus, tu acceptes moins bien… ou tu reportes.<br/><br/><b>Le club règle ça :</b> tu passes de “réserver quand tu peux” à <b>revenir quand tu veux recharger</b> grâce à un accès prioritaire et des séjours inclus hors pics.<br/><br/><b>Imagine</b> : dans 2 semaines, tu sens la fatigue monter. Au lieu de comparer 12 annonces, tu proposes 2 options de dates… et tu reviens dans un lieu que tu connais déjà.<br/><br/><b>Perdre cette fenêtre</b> coûte cher : énergie, temps, et opportunités de repos. Le membership protège tes pauses, comme on protège un rendez‑vous important." },
       {q:"Comment les dates sont confirmées ?", a:"Tu proposes tes dates. Nous confirmons selon la disponibilité et le respect des règles (séjours calmes, pas d’événements, etc.)."},
-      {q:"Pourquoi un membership ?", a:"Parce que les meilleures dates partent vite. Le membership te fait gagner du temps (moins de recherche), réduit l’incertitude et te donne un cadre clair pour revenir plus facilement — sans renégocier à chaque fois."},
       {q:"Les frais de ménage sont-ils inclus ?", a:"Non. Les frais de ménage sont payés en sus à chaque séjour, pour maintenir un standard constant."},
       {q:"À qui s’adresse le club ?", a:"Aux couples, familles calmes et télétravailleurs qui veulent une expérience premium, sans fêtes ni événements."},
       {q:"Puis-je transférer mon membership ?", a:"Par défaut non. Des exceptions peuvent être autorisées par écrit au cas par cas."}
     ],
     en: [
       {q:"What am I actually buying?", a:"You’re not buying “nights.” You’re buying <b>certainty</b>: the ability to come back to Lac Amico without starting over (searching, messaging, hoping dates are still available).<br/><br/><b>In practice:</b> priority access + included off‑peak nights, with a consistent premium standard (quiet, clean, dependable).<br/><br/><b>What you avoid:</b> missing the few truly calm windows, paying more last‑minute, or pushing your reset to “later.”<br/><br/><b>What you get:</b> a trusted place that’s ready when you need it—so you come back recharged."},
+      {q:"What if my 2 date options aren’t available?", a:"We reply with the best alternative (or ask for 2 new options). The point of the club is to save you time—we help you secure a window that works without starting over."},
+      {q:"What happens after payment?", a:"You receive a Stripe confirmation email + instructions. Then you submit 2 date options via the form. We confirm quickly based on availability and club rules. Simple, minimal back-and-forth."},
       { q: "Why a membership?", a: "Because the real problem isn’t finding a chalet—it’s <b>not knowing if you can come back</b> when you actually need the reset. When you’re ready, the best dates are gone, you pay more, settle for less… or postpone.<br/><br/><b>The club fixes that:</b> you move from “book if you can” to <b>return when you need to recharge</b> with priority access and included off‑peak stays.<br/><br/><b>Picture this:</b> two weeks from now you feel the fatigue rising. Instead of comparing listings, you submit two date options… and you’re back in a place you already trust.<br/><br/><b>Missing that window</b> costs real money and energy. Membership protects your resets like a non‑negotiable appointment." },
       {q:"How are dates confirmed?", a:"You request your dates. We confirm based on availability and club rules (calm stays, no events, etc.)."},
       {q:"Why a membership?", a:"Because the best dates disappear quickly. Membership saves you time, reduces uncertainty, and gives you a clear framework to come back more easily — without starting over each time."},
