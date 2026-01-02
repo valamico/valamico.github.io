@@ -352,29 +352,6 @@
 <p class="fineprint" data-i18n="hero_fineprint">Ce club n’est pas une offre publique. L’accès est accordé sur demande, selon disponibilité et respect des règles du club.</p>
 </div>
 </header>
-<section class="section alt" id="video">
-<div class="container">
-<div class="grid two">
-<div>
-<h2 data-i18n="video_h2" style="font-family:'Playfair Display',serif;margin:0 0 10px;font-size:34px;line-height:1.1;">
-          Découvrir Lac Amico en vidéo
-        </h2>
-<p data-i18n="video_p" style="margin:0;color:rgba(249,247,242,.82);max-width:760px;">
-          Une visite rapide pour ressentir l’ambiance, les espaces, et le niveau de finition. (Vidéo adaptée à la langue sélectionnée.)
-        </p>
-<p class="fineprint" data-i18n="video_note" style="margin-top:12px">
-          Astuce : active le plein écran pour une meilleure immersion.
-        </p>
-</div>
-<div class="card" style="padding:0; background:rgba(0,0,0,.25); border:1px solid rgba(249,247,242,.14);">
-<div style="position:relative;width:100%;padding-top:56.25%;border-radius:18px;overflow:hidden;">
-<iframe allow="autoplay; encrypted-media" allowfullscreen="" id="chaletVideo" src="" style="position:absolute;inset:0;width:100%;height:100%;border:0;" title="Lac Amico video"></iframe>
-</div>
-</div>
-</div>
-</div>
-</section>
-
 <section class="section" id="tiers">
 <div class="container">
 <div class="grid two">
@@ -480,11 +457,9 @@
 </div>
 </div>
 </footer>
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
+<script>document.addEventListener("DOMContentLoaded", ()=>{
+document.getElementById("y").textContent = new Date().getFullYear();
 
-  const VIDEO_FR = "https://drive.google.com/file/d/1djbXA4ob4yFeO5blxzcN5Iht_LRDh_Tx/preview";
-  const VIDEO_EN = "https://drive.google.com/file/d/1-jUTy72h4CiU_TPfiP9cnnS8KRZ7s9wm/preview";
 
   const i18n = {
     fr: {
@@ -611,7 +586,8 @@
 
   const faqContent = {
     fr: [
-      {q:"Qu’est-ce que j’achète exactement ?", a:"Un membership annuel donnant accès à des avantages (accès prioritaire, cadre de réservation, règles du club). Ce n’est pas une location illimitée, ni une promesse de dates premium."},
+      {q:"Qu’est-ce que j’achète exactement ?", a:"Tu n’achètes pas “des nuits”. Tu achètes une <b>certitude</b> : pouvoir revenir à Lac Amico sans recommencer (recherche, comparaisons, messages, incertitude, dates déjà prises). <br/><br/><b>Concrètement</b>, le membership te donne un accès prioritaire + des séjours inclus hors pics, avec une expérience constante — calme, forêt, standard premium. <br/><br/><b>Ce que tu évites :</b> rater les rares périodes vraiment calmes, payer plus en dernière minute, ou repousser ton break “à plus tard”. <br/><br/><b>Ce que tu obtiens :</b> un lieu fiable, déjà prêt, pour décrocher vite et revenir rechargé."},
+      { q: "Pourquoi un membership ?", a: "Parce que le vrai problème n’est pas de trouver un chalet… c’est de <b>ne jamais savoir</b> si tu pourras revenir au bon moment. Quand tu en as besoin, les meilleures dates sont déjà parties — et tu te retrouves à accepter “moins bien”, plus cher, ou à abandonner.<br/><br/><b>Le membership règle ça</b> : tu passes d’une location ponctuelle à une <b>certitude</b> annuelle — un lieu de confiance, au même standard, avec accès prioritaire.<br/><br/><b>Imagine</b> : dans 2 semaines tu veux une pause. Au lieu de comparer 12 annonces, tu proposes 2 options de dates… et tu reviens." },
       {q:"Comment les dates sont confirmées ?", a:"Tu proposes tes dates. Nous confirmons selon la disponibilité et le respect des règles (séjours calmes, pas d’événements, etc.)."},
       {q:"Pourquoi un membership ?", a:"Parce que les meilleures dates partent vite. Le membership te fait gagner du temps (moins de recherche), réduit l’incertitude et te donne un cadre clair pour revenir plus facilement — sans renégocier à chaque fois."},
       {q:"Les frais de ménage sont-ils inclus ?", a:"Non. Les frais de ménage sont payés en sus à chaque séjour, pour maintenir un standard constant."},
@@ -619,7 +595,8 @@
       {q:"Puis-je transférer mon membership ?", a:"Par défaut non. Des exceptions peuvent être autorisées par écrit au cas par cas."}
     ],
     en: [
-      {q:"What am I actually buying?", a:"An annual membership with benefits (priority access, booking framework, club rules). It’s not unlimited stays and it doesn’t guarantee peak dates."},
+      {q:"What am I actually buying?", a:"You’re not buying “nights.” You’re buying <b>certainty</b>: the ability to come back to Lac Amico without starting over (searching, comparing, messaging, hoping dates are still available).<br/><br/><b>In practice</b>, membership gives you priority access + included off‑peak stays, with a calm, premium standard you can trust.<br/><br/><b>What you avoid:</b> missing the few truly quiet windows, paying more last‑minute, or pushing your reset to “later.”<br/><br/><b>What you get:</b> a trusted place that’s ready when you need it—so you return recharged."},
+      { q: "Why a membership?", a: "Because the real problem isn’t finding a chalet—it’s <b>never knowing</b> if you can come back at the right time. When you need a break, the best dates are gone and you either settle for less, pay more, or skip it.<br/><br/><b>Membership fixes that</b>: you move from one‑off booking to annual <b>certainty</b>—a trusted place, same premium standard, with priority access.<br/><br/><b>Picture this</b>: two weeks from now you need a reset. Instead of comparing listings, you submit two date options… and you’re back." },
       {q:"How are dates confirmed?", a:"You request your dates. We confirm based on availability and club rules (calm stays, no events, etc.)."},
       {q:"Why a membership?", a:"Because the best dates disappear quickly. Membership saves you time, reduces uncertainty, and gives you a clear framework to come back more easily — without starting over each time."},
       {q:"Are cleaning fees included?", a:"No. Cleaning fees are paid per stay to keep a consistent premium standard."},
@@ -656,10 +633,6 @@
     enBtn?.classList.toggle("active", lang==="en");
     frBtn?.setAttribute("aria-pressed", lang==="fr");
     enBtn?.setAttribute("aria-pressed", lang==="en");
-
-    const iframe = document.getElementById("chaletVideo");
-    if(iframe) iframe.src = (lang==="fr") ? VIDEO_FR : VIDEO_EN;
-
     if(document.getElementById("faqModal")?.classList.contains("open")) renderFaq();
 
     localStorage.setItem("lac_amico_lang", lang);
@@ -691,6 +664,7 @@
   document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeFaq(); });
 
   applyLang();
+});
 </script>
 
 <div aria-hidden="true" class="faq-modal" id="faqModal">
@@ -698,7 +672,7 @@
 <div aria-labelledby="faqTitle" aria-modal="true" class="faq-panel" role="dialog">
 <div class="faq-head">
 <div class="faq-title" data-i18n="faq_title" id="faqTitle">Questions fréquentes</div>
-<button aria-label="Close" class="faq-close" data-i18n="close" id="closeFaq" type="button">Fermer</button>
+<button aria-label="Close" class="faq-close" data-i18n="close" id="closeFaq" type="button" type="button">Fermer</button>
 </div>
 <div class="faq-body" id="faqBody"></div>
 </div>
