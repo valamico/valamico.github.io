@@ -329,6 +329,32 @@
     }
     .faq-q{margin:0 0 8px;font-weight:600}
     .faq-a{margin:0;color:rgba(249,247,242,.82)}
+
+/* Inclusion chip (value highlight) */
+.incl-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 10px;
+  border-radius:999px;
+  background:rgba(243,215,166,.12);
+  border:1px solid rgba(243,215,166,.35);
+  color:#F3D7A6;
+  font-weight:800;
+  letter-spacing:.2px;
+  margin:10px 0 6px;
+}
+.incl-chip small{
+  opacity:.9;
+  font-weight:700;
+}
+/* Make audience badge more readable */
+.badge{
+  color:#F3D7A6 !important;
+  border-color:rgba(243,215,166,.35) !important;
+  background:rgba(15,23,42,.12) !important;
+}
+
 </style>
 </head>
 <body>
@@ -371,6 +397,7 @@
 <div class="card-pad">
 <h3 data-i18n="ins_title">Insider</h3>
 <p data-i18n="ins_desc">Accès privé pour profiter de Lac Amico en basse &amp; mi-saison, avec simplicité.</p>
+<div class="incl-chip" data-i18n="ins_incl">✅ 2 nuits incluses <small>/ an</small></div>
 <div class="price">
 <b data-i18n="ins_price_label">Insider</b>
 <span data-i18n="annual_label">Abonnement annuel</span>
@@ -389,6 +416,7 @@
 <div class="card-pad">
 <h3 data-i18n="sig_title">Signature</h3>
 <p data-i18n="sig_desc">Pour ceux qui veulent prioriser davantage leurs retours et sécuriser leur rythme d’évasion.</p>
+<div class="incl-chip" data-i18n="sig_incl">✅ 5 nuits incluses <small>/ an</small></div>
 <div class="price">
 <b data-i18n="sig_price_label">Signature</b>
 <span data-i18n="annual_label">Abonnement annuel</span>
@@ -465,9 +493,9 @@ document.getElementById("y").textContent = new Date().getFullYear();
     fr: {
       top_apply: "Demander l’accès",
       top_faq: "Questions fréquentes",
-      hero_kicker: "Accès privé • Places limitées • Basse & mi-saison",
+      hero_kicker: "Accès privé • Places limitées • Séjours inclus hors pics",
       hero_h1: "Revenir, sans recommencer.",
-      hero_lead: "Lac Amico Private Club est un membership réservé à quelques anciens guests et invités, conçu pour ceux qui recherchent un lieu familier — calme, forêt, lumière — où revenir facilement.",
+      hero_lead: "Lac Amico Private Club est un membership privé réservé à quelques anciens guests et invités. Il répond à un problème simple : <b>quand tu as besoin d’une vraie pause, les meilleures dates sont déjà parties</b>. <br/><br/>Ici, tu passes d’une location ponctuelle à une <b>certitude</b> : un lieu familier — calme, forêt, lumière — au même standard, avec un accès prioritaire et des nuits incluses hors périodes premium. <br/><br/><b>Moins de décisions. Plus de moments de qualité.</b>",
       cta_apply: "Demander l’accès",
       cta_tiers: "Voir les memberships",
       hero_fineprint: "Ce club n’est pas une offre publique. L’accès est accordé sur demande, selon disponibilité et respect des règles du club.",
@@ -476,26 +504,26 @@ document.getElementById("y").textContent = new Date().getFullYear();
       video_p: "Une visite rapide pour ressentir l’ambiance, les espaces, et le niveau de finition. (Vidéo adaptée à la langue sélectionnée.)",
       video_note: "Astuce : active le plein écran pour une meilleure immersion.",
 
-      tiers_h2: "Deux niveaux. Un même esprit : calme & respect.",
-      tiers_p: "Le membership te donne un cadre clair et un accès prioritaire sur certaines périodes. Tu proposes tes dates, nous confirmons selon la disponibilité et les règles du club.",
+      tiers_h2: "Deux niveaux. Une promesse : la certitude de revenir.",
+      tiers_p: "Choisis ton niveau, puis demande tes dates via le formulaire. Nous confirmons selon la disponibilité et les règles du club. <br/><br/><b>Pourquoi ça marche :</b> le club est limité, donc l’accès reste réellement prioritaire.",
       audience_badge: "Couples • Familles calmes • Télétravail",
-      audience_p: "Ambiance premium, sans fêtes ni événements. Le club est pensé pour préserver l’expérience.",
+      audience_p: "<b>Pour les personnes qui veulent décrocher sans compromis.</b> Pas de fêtes, pas d’événements : la tranquillité fait partie du contrat social. Si tu cherches un endroit fiable pour te reposer, te recentrer ou travailler au calme, tu es au bon endroit.",
 
       ins_title: "Insider",
-      ins_desc: "Accès privé pour profiter de Lac Amico en basse & mi-saison, avec simplicité.",
+      ins_desc: "Le meilleur point d’entrée pour sécuriser tes pauses : simple, clair, efficace.",
       ins_price_label: "Insider",
       annual_label: "Abonnement annuel",
-      ins_li1: "Accès prioritaire sur certaines périodes",
-      ins_li2: "Process simple : demande → confirmation",
-      ins_li3: "Règles claires pour préserver le calme",
+      ins_li1: "<b>2 nuits incluses</b> par an (basse & mi-saison)",
+      ins_li2: "Accès prioritaire + process simple : demande → confirmation",
+      ins_li3: "Règles anti-fêtes pour préserver le calme (expérience constante)",
       ins_btn: "Souscrire Insider",
 
       sig_title: "Signature",
-      sig_desc: "Pour ceux qui veulent prioriser davantage leurs retours et sécuriser leur rythme d’évasion.",
+      sig_desc: "Pour ceux qui veulent plus de flexibilité et de certitude — même quand l’envie arrive à la dernière minute.",
       sig_price_label: "Signature",
-      sig_li1: "Priorité renforcée (selon disponibilité)",
-      sig_li2: "Expérience premium, sans compromis",
-      sig_li3: "Communication dédiée",
+      sig_li1: "<b>5 nuits incluses</b> par an (jusqu’à 2 séjours)",
+      sig_li2: "Option <b>last‑minute</b> (J‑10) selon disponibilité (non garanti)",
+      sig_li3: "Priorité sur annulations + accès plus flexible",
       sig_btn: "Souscrire Signature",
 
       how_title: "Comment ça marche",
@@ -525,9 +553,9 @@ document.getElementById("y").textContent = new Date().getFullYear();
     en: {
       top_apply: "Request access",
       top_faq: "FAQ",
-      hero_kicker: "Private access • Limited spots • Off & mid-season",
-      hero_h1: "Come back — without starting over.",
-      hero_lead: "Lac Amico Private Club is a private membership for a small circle of past guests and invitees — built for people who want a familiar, calm, premium place to return to.",
+      hero_kicker: "Private access • Limited spots • Included off‑peak stays",
+      hero_h1: "Come back—without starting over.",
+      hero_lead: "Lac Amico Private Club is a private membership for a small circle of past guests and invited members. It solves a simple problem: <b>when you need a real reset, the best dates are already gone</b>.<br/><br/>Here you move from one‑off booking to <b>certainty</b>: a familiar place—calm, forest, light—with consistent premium standards, priority access, and included off‑peak nights.<br/><br/><b>Fewer decisions. More quality moments.</b>",
       cta_apply: "Request access",
       cta_tiers: "View memberships",
       hero_fineprint: "This is not a public offer. Access is granted upon request, subject to availability and club rules.",
@@ -536,26 +564,26 @@ document.getElementById("y").textContent = new Date().getFullYear();
       video_p: "A short visit to feel the atmosphere, spaces, and finishing level. (Video switches with the selected language.)",
       video_note: "Tip: use fullscreen for the best experience.",
 
-      tiers_h2: "Two tiers. One shared mindset: calm & respect.",
-      tiers_p: "Membership gives you a clear framework and priority access during selected periods. You request your dates, we confirm based on availability and club rules.",
+      tiers_h2: "Two tiers. One promise: certainty you can return.",
+      tiers_p: "Choose your tier, then request dates via the form. We confirm based on availability and club rules.<br/><br/><b>Why it works:</b> the club is capped—so priority access stays real.",
       audience_badge: "Couples • Calm families • Remote work",
-      audience_p: "Premium vibe — no parties, no events. The club is designed to protect the experience.",
+      audience_p: "<b>For people who want a true reset without compromise.</b> No parties, no events—quiet is part of the deal. If you want a reliable place to rest, recharge, or work in peace, you’re in the right place.",
 
       ins_title: "Insider",
-      ins_desc: "Private access to enjoy Lac Amico in off & mid-season — simple and straightforward.",
+      ins_desc: "The best entry point to secure your resets: simple, clear, effective.",
       ins_price_label: "Insider",
       annual_label: "Annual membership",
-      ins_li1: "Priority access during selected periods",
-      ins_li2: "Simple flow: request → confirmation",
-      ins_li3: "Clear rules to preserve calm",
+      ins_li1: "<b>2 nights included</b> per year (off & mid‑season)",
+      ins_li2: "Priority access + simple flow: request → confirmation",
+      ins_li3: "No‑party rules to protect quiet (consistent experience)",
       ins_btn: "Join Insider",
 
       sig_title: "Signature",
-      sig_desc: "For members who want stronger priority and a more reliable getaway rhythm.",
+      sig_desc: "For those who want more flexibility and certainty—even when the urge is last‑minute.",
       sig_price_label: "Signature",
-      sig_li1: "Enhanced priority (subject to availability)",
-      sig_li2: "Premium experience, no compromises",
-      sig_li3: "Dedicated communication",
+      sig_li1: "<b>5 nights included</b> per year (up to 2 stays)",
+      sig_li2: "<b>Last‑minute</b> option (D‑10) subject to availability (not guaranteed)",
+      sig_li3: "Priority on cancellations + more flexible access",
       sig_btn: "Join Signature",
 
       how_title: "How it works",
@@ -586,8 +614,8 @@ document.getElementById("y").textContent = new Date().getFullYear();
 
   const faqContent = {
     fr: [
-      {q:"Qu’est-ce que j’achète exactement ?", a:"Tu n’achètes pas “des nuits”. Tu achètes une <b>certitude</b> : pouvoir revenir à Lac Amico sans recommencer (recherche, comparaisons, messages, incertitude, dates déjà prises). <br/><br/><b>Concrètement</b>, le membership te donne un accès prioritaire + des séjours inclus hors pics, avec une expérience constante — calme, forêt, standard premium. <br/><br/><b>Ce que tu évites :</b> rater les rares périodes vraiment calmes, payer plus en dernière minute, ou repousser ton break “à plus tard”. <br/><br/><b>Ce que tu obtiens :</b> un lieu fiable, déjà prêt, pour décrocher vite et revenir rechargé."},
-      { q: "Pourquoi un membership ?", a: "Parce que le vrai problème n’est pas de trouver un chalet… c’est de <b>ne jamais savoir</b> si tu pourras revenir au bon moment. Quand tu en as besoin, les meilleures dates sont déjà parties — et tu te retrouves à accepter “moins bien”, plus cher, ou à abandonner.<br/><br/><b>Le membership règle ça</b> : tu passes d’une location ponctuelle à une <b>certitude</b> annuelle — un lieu de confiance, au même standard, avec accès prioritaire.<br/><br/><b>Imagine</b> : dans 2 semaines tu veux une pause. Au lieu de comparer 12 annonces, tu proposes 2 options de dates… et tu reviens." },
+      {q:"Qu’est-ce que j’achète exactement ?", a:"Tu n’achètes pas “des nuits”. Tu achètes une <b>certitude</b> : pouvoir revenir à Lac Amico sans recommencer (recherche, messages, incertitude, dates déjà prises).<br/><br/><b>Concrètement :</b> un accès prioritaire + des nuits incluses hors périodes premium, avec un standard constant (calme, propreté, expérience).<br/><br/><b>Ce que tu évites :</b> rater les rares périodes vraiment calmes, payer plus en dernière minute, ou repousser ton break à “plus tard”.<br/><br/><b>Ce que tu obtiens :</b> un lieu fiable, prêt, pour décrocher vite — et revenir rechargé(e)."},
+      { q: "Pourquoi un membership ?", a: "Parce que le vrai problème n’est pas de trouver un chalet — c’est de <b>ne pas savoir si tu pourras revenir</b> au moment où tu en as besoin. Quand tu es prêt(e) à décrocher, les meilleures dates sont déjà prises, tu paies plus, tu acceptes moins bien… ou tu reportes.<br/><br/><b>Le club règle ça :</b> tu passes de “réserver quand tu peux” à <b>revenir quand tu veux recharger</b> grâce à un accès prioritaire et des séjours inclus hors pics.<br/><br/><b>Imagine</b> : dans 2 semaines, tu sens la fatigue monter. Au lieu de comparer 12 annonces, tu proposes 2 options de dates… et tu reviens dans un lieu que tu connais déjà.<br/><br/><b>Perdre cette fenêtre</b> coûte cher : énergie, temps, et opportunités de repos. Le membership protège tes pauses, comme on protège un rendez‑vous important." },
       {q:"Comment les dates sont confirmées ?", a:"Tu proposes tes dates. Nous confirmons selon la disponibilité et le respect des règles (séjours calmes, pas d’événements, etc.)."},
       {q:"Pourquoi un membership ?", a:"Parce que les meilleures dates partent vite. Le membership te fait gagner du temps (moins de recherche), réduit l’incertitude et te donne un cadre clair pour revenir plus facilement — sans renégocier à chaque fois."},
       {q:"Les frais de ménage sont-ils inclus ?", a:"Non. Les frais de ménage sont payés en sus à chaque séjour, pour maintenir un standard constant."},
@@ -595,8 +623,8 @@ document.getElementById("y").textContent = new Date().getFullYear();
       {q:"Puis-je transférer mon membership ?", a:"Par défaut non. Des exceptions peuvent être autorisées par écrit au cas par cas."}
     ],
     en: [
-      {q:"What am I actually buying?", a:"You’re not buying “nights.” You’re buying <b>certainty</b>: the ability to come back to Lac Amico without starting over (searching, comparing, messaging, hoping dates are still available).<br/><br/><b>In practice</b>, membership gives you priority access + included off‑peak stays, with a calm, premium standard you can trust.<br/><br/><b>What you avoid:</b> missing the few truly quiet windows, paying more last‑minute, or pushing your reset to “later.”<br/><br/><b>What you get:</b> a trusted place that’s ready when you need it—so you return recharged."},
-      { q: "Why a membership?", a: "Because the real problem isn’t finding a chalet—it’s <b>never knowing</b> if you can come back at the right time. When you need a break, the best dates are gone and you either settle for less, pay more, or skip it.<br/><br/><b>Membership fixes that</b>: you move from one‑off booking to annual <b>certainty</b>—a trusted place, same premium standard, with priority access.<br/><br/><b>Picture this</b>: two weeks from now you need a reset. Instead of comparing listings, you submit two date options… and you’re back." },
+      {q:"What am I actually buying?", a:"You’re not buying “nights.” You’re buying <b>certainty</b>: the ability to come back to Lac Amico without starting over (searching, messaging, hoping dates are still available).<br/><br/><b>In practice:</b> priority access + included off‑peak nights, with a consistent premium standard (quiet, clean, dependable).<br/><br/><b>What you avoid:</b> missing the few truly calm windows, paying more last‑minute, or pushing your reset to “later.”<br/><br/><b>What you get:</b> a trusted place that’s ready when you need it—so you come back recharged."},
+      { q: "Why a membership?", a: "Because the real problem isn’t finding a chalet—it’s <b>not knowing if you can come back</b> when you actually need the reset. When you’re ready, the best dates are gone, you pay more, settle for less… or postpone.<br/><br/><b>The club fixes that:</b> you move from “book if you can” to <b>return when you need to recharge</b> with priority access and included off‑peak stays.<br/><br/><b>Picture this:</b> two weeks from now you feel the fatigue rising. Instead of comparing listings, you submit two date options… and you’re back in a place you already trust.<br/><br/><b>Missing that window</b> costs real money and energy. Membership protects your resets like a non‑negotiable appointment." },
       {q:"How are dates confirmed?", a:"You request your dates. We confirm based on availability and club rules (calm stays, no events, etc.)."},
       {q:"Why a membership?", a:"Because the best dates disappear quickly. Membership saves you time, reduces uncertainty, and gives you a clear framework to come back more easily — without starting over each time."},
       {q:"Are cleaning fees included?", a:"No. Cleaning fees are paid per stay to keep a consistent premium standard."},
