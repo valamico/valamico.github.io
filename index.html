@@ -412,6 +412,30 @@
 }
 .card.insider .btn.btn-primary:hover{ background:#F8FAFF; }
 
+
+/* Alignment fixes: title row + badge + CTA buttons */
+.card-pad{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+.plan-title-row{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.plan-title-row h3{ margin:0; }
+.rec-badge{ margin:0 !important; line-height:1; }
+.plan-cta{
+  margin-top:auto;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.plan-cta .btn{ width:100%; }
+
 </style>
 </head>
 <body>
@@ -452,8 +476,10 @@
 <article class="card signature" id="signature">
 <div class="media signature"></div>
 <div class="card-pad">
+<div class="plan-title-row">
 <div class="rec-badge" data-i18n="sig_badge">Recommandé</div>
 <h3 data-i18n="sig_title">Signature</h3>
+</div>
 <p data-i18n="sig_desc">Pour ceux qui veulent prioriser davantage leurs retours et sécuriser leur rythme d’évasion.</p>
 <div class="incl-chip" data-i18n="sig_incl">✅ 5 nuits incluses <small>/ an</small></div>
 <div class="value-line" data-i18n="sig_value">Valeur sécurisée : accès + flexibilité</div>
@@ -468,13 +494,17 @@
 <li data-i18n="sig_li3">Communication dédiée</li>
 </ul>
 <div class="divider"></div>
+<div class="plan-cta">
 <a class="btn btn-primary" data-i18n="sig_btn" href="https://buy.stripe.com/aFa6oHdnegz035VgU1fAc01" rel="noopener" target="_blank">Souscrire Signature</a>
+</div>
 </div>
 </article>
 <article class="card insider" id="insider">
 <div class="media insider"></div>
 <div class="card-pad">
+<div class="plan-title-row">
 <h3 data-i18n="ins_title">Insider</h3>
+</div>
 <p data-i18n="ins_desc">Accès privé pour profiter de Lac Amico en basse &amp; mi-saison, avec simplicité.</p>
 <div class="incl-chip" data-i18n="ins_incl">✅ 2 nuits incluses <small>/ an</small></div>
 <div class="value-line" data-i18n="ins_value">Valeur sécurisée : pauses planifiées</div>
@@ -489,7 +519,9 @@
 <li data-i18n="ins_li3">Règles claires pour préserver le calme</li>
 </ul>
 <div class="divider"></div>
+<div class="plan-cta">
 <a class="btn btn-primary" data-i18n="ins_btn" href="https://buy.stripe.com/aFa4gz0As2IacGv0V3fAc00" rel="noopener" target="_blank">Souscrire Insider</a>
+</div>
 </div>
 </article>
 </div>
@@ -512,13 +544,13 @@
 <div class="grid two">
 <div>
 <h2 data-i18n="apply_h2" style="font-family:'Playfair Display',serif;margin:0 0 10px;font-size:34px;line-height:1.1;">Demander l’accès</h2>
-<p data-i18n="apply_p" style="margin:0;color:rgba(249,247,242,.82);max-width:760px;">Remplis le formulaire (1 minute). Nous reviendrons vers toi rapidement avec la confirmation et les prochaines étapes.</p>
+<p data-i18n="apply_p" style="margin:0;color:rgba(249,247,242,.82);max-width:760px;">Remplis le formulaire . Nous reviendrons vers toi rapidement avec la confirmation et les prochaines étapes.</p>
 <div class="cta-row" style="margin-top:18px;">
 <a class="btn btn-primary" data-i18n="apply_btn" href="https://forms.gle/Cyv3MfP6uaF7swKA9" rel="noopener" target="_blank">Ouvrir le formulaire</a>
 <button class="btn btn-ghost" data-i18n="apply_faq_btn" id="openFaq2" type="button">Questions fréquentes</button>
 </div>
 </div>
-<div class="faq" id="faq"><p data-i18n="faq_teaser" style="margin:0;color:rgba(249,247,242,.85)">Tu as une question sur les dates, les règles, ou le fonctionnement ? Ouvre la FAQ — réponses claires en moins d’une minute.</p><button class="btn btn-ghost" data-i18n="faq_open" id="openFaq3" style="display:inline-flex;margin-top:14px" type="button">Ouvrir la FAQ</button></div>
+<div class="faq" id="faq"><p data-i18n="faq_teaser" style="margin:0;color:rgba(249,247,242,.85)">Tu as une question sur les dates, les règles, ou le fonctionnement ? Ouvre la FAQ .</p><button class="btn btn-ghost" data-i18n="faq_open" id="openFaq3" style="display:inline-flex;margin-top:14px" type="button">Ouvrir la FAQ</button></div>
 </div>
 </div>
 </section>
@@ -595,10 +627,10 @@ social_note2: "La plupart des membres choisissent Signature pour la flexibilité
       gallery_fp: "Lac Amico Private Club privilégie les séjours calmes (pas d’événements). Les disponibilités et conditions sont confirmées après demande.",
 
       apply_h2: "Demander l’accès",
-      apply_p: "Remplis le formulaire (1 minute). Nous reviendrons vers toi rapidement avec la confirmation et les prochaines étapes.",
+      apply_p: "Remplis le formulaire . Nous reviendrons vers toi rapidement avec la confirmation et les prochaines étapes.",
       apply_btn: "Ouvrir le formulaire",
       apply_faq_btn: "Questions fréquentes",
-      faq_teaser: "Tu as une question sur les dates, les règles, ou le fonctionnement ? Ouvre la FAQ — réponses claires en moins d’une minute.",
+      faq_teaser: "Tu as une question sur les dates, les règles, ou le fonctionnement ? Ouvre la FAQ .",
       faq_open: "Ouvrir la FAQ",
 
       footer_memberships: "Memberships",
@@ -666,7 +698,7 @@ social_note2: "Most members choose Signature for flexibility.",
       gallery_fp: "Lac Amico Private Club prioritizes calm stays (no events). Availability and conditions are confirmed after your request.",
 
       apply_h2: "Request access",
-      apply_p: "Fill out the form (1 minute). We’ll get back to you quickly with confirmation and next steps.",
+      apply_p: "Fill out the form . We’ll get back to you quickly with confirmation and next steps.",
       apply_btn: "Open the form",
       apply_faq_btn: "FAQ",
       faq_teaser: "Wondering about dates, rules, or how it works? Open the FAQ — clear answers in under a minute.",
