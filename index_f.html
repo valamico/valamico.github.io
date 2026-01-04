@@ -1,0 +1,807 @@
+
+index.html
+Page
+1
+/
+1
+100%
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Lac Amico Private Club</title>
+<meta content="Un accès privé et limité à Lac Amico, pour revenir en basse et mi-saison dans un lieu familier, calme et premium." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root{
+      --forest:#1B3022;
+      --cream:#F9F7F2;
+      --bronze:#B08D57;
+      --ink:#0f1b14;
+      --muted: rgba(249,247,242,.80);
+      --card: rgba(249,247,242,.92);
+      --shadow: 0 18px 45px rgba(0,0,0,.18);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--forest);
+      color:var(--cream);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .topbar{
+      position:fixed; top:0; left:0; right:0;
+      z-index:50;
+      background:linear-gradient(to bottom, rgba(27,48,34,.92), rgba(27,48,34,.55), rgba(27,48,34,0));
+      backdrop-filter:saturate(140%) blur(6px);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:16px 0;
+    }
+    .brand{
+      display:flex; gap:10px; align-items:baseline;
+      font-family:"Playfair Display", serif;
+      letter-spacing:.4px;
+    }
+    .brand b{font-weight:600}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border:1px solid rgba(249,247,242,.25);
+      border-radius:999px;
+      background:rgba(15,27,20,.28);
+      font-size:12px;
+      color:rgba(249,247,242,.92);
+      text-decoration:none;
+    }
+    .pill:hover{border-color:rgba(176,141,87,.65)}
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:flex-end;
+      padding:110px 0 56px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(27,48,34,.35) 0%, rgba(27,48,34,.55) 50%, rgba(27,48,34,.92) 100%),
+        url("assets/pro-2/36_twilight-1-1.jpg") center/cover no-repeat;
+      transform:scale(1.02);
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(70% 60% at 50% 20%, rgba(176,141,87,.12), rgba(0,0,0,0) 60%);
+      pointer-events:none;
+    }
+    .hero-content{
+      position:relative;
+      width:100%;
+    }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(15,27,20,.40);
+      border:1px solid rgba(249,247,242,.20);
+      color:rgba(249,247,242,.90);
+      font-size:13px;
+    }
+    h1{
+      margin:16px 0 10px;
+      font-family:"Playfair Display", serif;
+      font-size:clamp(34px, 5vw, 56px);
+      line-height:1.08;
+      letter-spacing:.2px;
+    }
+    .lead{
+      max-width:720px;
+      font-size:clamp(15px, 2vw, 18px);
+      color:var(--muted);
+      margin:0 0 22px;
+    }
+    .cta-row{
+      display:flex; flex-wrap:wrap; gap:12px;
+      align-items:center;
+      margin-top:18px;
+    }
+    .btn{
+      appearance:none; border:0; cursor:pointer;
+      padding:12px 16px;
+      border-radius:999px;
+      font-weight:600;
+      letter-spacing:.2px;
+      text-decoration:none;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+      will-change:transform;
+    }
+    .btn-primary{
+      background:linear-gradient(180deg, rgba(176,141,87,1), rgba(143,112,68,1));
+      color:rgba(15,27,20,1);
+      box-shadow:0 18px 35px rgba(0,0,0,.25);
+    }
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-ghost{
+      background:rgba(15,27,20,.35);
+      border:1px solid rgba(249,247,242,.25);
+      color:rgba(249,247,242,.92);
+    }
+    .btn-ghost:hover{border-color:rgba(176,141,87,.75); transform:translateY(-1px)}
+    .section{
+      padding:70px 0;
+      background:linear-gradient(180deg, rgba(27,48,34,1) 0%, rgba(20,36,26,1) 100%);
+    }
+    .section.alt{
+      background:linear-gradient(180deg, rgba(20,36,26,1) 0%, rgba(27,48,34,1) 100%);
+    }
+    .grid{
+      display:grid;
+      gap:18px;
+    }
+    .two{
+      grid-template-columns: 1.15fr .85fr;
+    }
+    .three{
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 960px){
+      .two{grid-template-columns:1fr}
+      .three{grid-template-columns:1fr}
+    }
+    .card{
+      background:var(--card);
+      color:var(--ink);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      border:1px solid rgba(15,27,20,.10);
+    }
+    .card-pad{padding:18px 18px 16px}
+    .card h3{
+      margin:0 0 8px;
+      font-family:"Playfair Display", serif;
+      font-size:22px;
+    }
+    .card p{margin:0;color:rgba(15,27,20,.80)}
+    .divider{height:1px;background:rgba(15,27,20,.10);margin:14px 0}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(27,48,34,.08);
+      border:1px solid rgba(27,48,34,.12);
+      font-size:12px;
+      color:rgba(15,27,20,.78);
+    }
+    .price{
+      display:flex; align-items:baseline; gap:10px;
+      margin-top:10px;
+    }
+    .price b{
+      font-size:26px;
+      font-family:"Playfair Display", serif;
+      color:rgba(15,27,20,1);
+    }
+    .price span{color:rgba(15,27,20,.68);font-size:13px}
+    .media{
+      height:210px;
+      background:#ddd center/cover no-repeat;
+    }
+    .media.insider{background-image:url("assets/pro-2/25_terrasse-1-1.jpg")}
+    .media.signature{background-image:url("assets/pro-2/12_salon-1-1.jpg")}
+    .list{
+      margin:12px 0 0;
+      padding-left:18px;
+      color:rgba(15,27,20,.82);
+    }
+    .list li{margin:6px 0}
+    .gallery{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:16px;
+    }
+    .gallery .left{
+      border-radius:var(--radius);
+      overflow:hidden;
+      min-height:420px;
+      background:
+        linear-gradient(180deg, rgba(27,48,34,.00) 0%, rgba(27,48,34,.70) 100%),
+        url("assets/pro-2/30_exterieur-1-4.jpg") center/cover no-repeat;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(249,247,242,.12);
+    }
+    .gallery .right{
+      display:grid;
+      grid-template-rows:1fr 1fr;
+      gap:16px;
+    }
+    .gbox{
+      border-radius:var(--radius);
+      overflow:hidden;
+      min-height:202px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(249,247,242,.12);
+    }
+    .g1{background:url("assets/pro-2/26_terrasse-1-2.jpg") center/cover no-repeat}
+    .g2{background:url("assets/pro-2/13_salon-1-2.jpg") center/cover no-repeat}
+    .fineprint{
+      color:rgba(249,247,242,.78);
+      font-size:12.5px;
+      margin-top:12px;
+      max-width:840px;
+    }
+    .faq details{
+      background:rgba(249,247,242,.08);
+      border:1px solid rgba(249,247,242,.14);
+      border-radius:14px;
+      padding:14px 14px;
+    }
+    .faq summary{
+      cursor:pointer;
+      font-weight:600;
+      color:rgba(249,247,242,.95);
+      list-style:none;
+    }
+    .faq summary::-webkit-details-marker{display:none}
+    .faq p{margin:10px 0 0; color:rgba(249,247,242,.82)}
+    footer{
+      padding:42px 0;
+      background:rgba(15,27,20,1);
+      color:rgba(249,247,242,.78);
+      font-size:13px;
+    }
+    .footer-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+    .small-link{color:rgba(249,247,242,.85);text-decoration:none;border-bottom:1px solid rgba(249,247,242,.22)}
+    .small-link:hover{border-bottom-color:rgba(176,141,87,.8)}
+  
+    /* Language toggle (topbar) */
+    .topbar-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .lang-toggle{display:inline-flex;gap:6px;align-items:center}
+    .lang-btn{
+      appearance:none;border:1px solid rgba(249,247,242,.25);
+      background:rgba(15,27,20,.28);
+      color:rgba(249,247,242,.92);
+      padding:8px 10px;border-radius:999px;
+      cursor:pointer;font-weight:600;font-size:12px;
+    }
+    .lang-btn.active{
+      background:linear-gradient(180deg, rgba(176,141,87,1), rgba(143,112,68,1));
+      border-color:rgba(176,141,87,1);
+      color:rgba(15,27,20,1);
+    }
+    .pill-btn{appearance:none;border:1px solid rgba(249,247,242,.25);cursor:pointer}
+
+    /* ✅ Fix badge visibility on dark background */
+    .badge{
+      background:rgba(249,247,242,.12);
+      border:1px solid rgba(176,141,87,.38);
+      color:rgba(249,247,242,.95);
+    }
+
+    /* FAQ modal */
+    .faq-modal{position:fixed;inset:0;display:none;z-index:100}
+    .faq-modal.open{display:block}
+    .faq-overlay{position:absolute;inset:0;background:rgba(0,0,0,.55)}
+    .faq-panel{
+      position:relative;
+      width:min(860px, calc(100% - 34px));
+      max-height:86vh;
+      overflow:auto;
+      margin:7vh auto 0;
+      background:rgba(15,27,20,.95);
+      border:1px solid rgba(249,247,242,.14);
+      border-radius:18px;
+      box-shadow:0 28px 80px rgba(0,0,0,.55);
+      color:var(--cream);
+      backdrop-filter:saturate(140%) blur(8px);
+    }
+    .faq-head{
+      position:sticky;top:0;
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      padding:14px 16px;
+      background:linear-gradient(to bottom, rgba(27,48,34,.95), rgba(27,48,34,.70));
+      border-bottom:1px solid rgba(249,247,242,.12);
+    }
+    .faq-title{font-family:"Playfair Display", serif;font-size:18px;letter-spacing:.2px}
+    .faq-close{
+      appearance:none;border:1px solid rgba(249,247,242,.25);
+      background:rgba(15,27,20,.35);
+      color:rgba(249,247,242,.92);
+      padding:8px 10px;border-radius:999px;
+      cursor:pointer;font-weight:600;font-size:12px;
+    }
+    .faq-body{padding:16px}
+    .faq-item{
+      border:1px solid rgba(249,247,242,.14);
+      background:rgba(249,247,242,.06);
+      border-radius:14px;
+      padding:14px 14px;
+      margin-bottom:12px;
+    }
+    .faq-q{margin:0 0 8px;font-weight:600}
+    .faq-a{margin:0;color:rgba(249,247,242,.82)}
+
+/* Inclusion chip (value highlight) */
+.incl-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  background:#FFF7E6;              /* light warm background */
+  border:1px solid #E6C98B;        /* soft gold border */
+  color:#7A5A1A;                   /* dark bronze text (high contrast) */
+  font-weight:900;
+  letter-spacing:.2px;
+  margin:10px 0 6px;
+}
+.incl-chip small{
+  opacity:.9;
+  font-weight:800;
+}
+
+/* Audience badge readability */
+.badge{
+  color:#7A5A1A !important;
+  border-color:#E6C98B !important;
+  background:#FFF7E6 !important;
+}
+
+
+/* How it works */
+.how-grid{ display:grid; gap:12px; grid-template-columns:1fr; }
+@media(min-width:900px){ .how-grid{ grid-template-columns:1fr 1fr 1fr; } }
+.how-step{ display:flex; gap:12px; align-items:flex-start; padding:12px; border:1px solid var(--line); border-radius:14px; background:#fff; }
+.how-num{ width:30px; height:30px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-weight:900; background:#FFF7E6; border:1px solid #E6C98B; color:#7A5A1A; flex:0 0 auto; }
+.how-h{ font-weight:900; letter-spacing:-0.01em; }
+
+/* Modal header spacing on small screens */
+.modal-header{ gap:12px; }
+
+/* Payment reassurance */
+.pay-note{ margin-top:8px; }
+
+
+/* Signature-first conversion tuning */
+.rec-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#1f4fbf;
+  color:#fff;
+  font-weight:900;
+  letter-spacing:.2px;
+  font-size:12px;
+  margin-bottom:10px;
+}
+.card.signature{
+  border-color:#E6C98B;
+  background:linear-gradient(180deg,#ffffff,#FFF7E6);
+}
+.value-line{
+  margin:10px 0 0;
+  font-weight:900;
+  color:#7A5A1A;
+}
+.value-sub{
+  margin:6px 0 0;
+  color:#475569;
+  font-size:13px;
+}
+.card.signature .btn.btn-primary{
+  background:#1f4fbf;
+  border-color:#1f4fbf;
+  color:#fff;
+}
+.card.signature .btn.btn-primary:hover{ filter:brightness(.95); }
+.card.insider .btn.btn-primary{
+  background:#fff;
+  color:#1f4fbf;
+  border-color:#1f4fbf;
+}
+.card.insider .btn.btn-primary:hover{ background:#F8FAFF; }
+
+
+/* CGV acceptance under Stripe buttons */
+.cgv-accept{
+  margin-top:10px;
+  font-size:12px;
+  opacity:.85;
+}
+.cgv-accept a{ text-decoration:underline; }
+
+</style>
+</head>
+<body>
+<div class="topbar">
+<div class="container topbar-inner">
+<div class="brand">
+<b>Lac Amico</b><span style="opacity:.82">Private Club</span>
+</div>
+
+<div class="topbar-actions"><a class="pill" data-i18n="top_apply" href="#apply">Demander l’accès</a><button class="pill pill-btn" data-i18n="top_faq" id="openFaq" type="button">Questions fréquentes</button><div class="lang-toggle"><button aria-pressed="true" class="lang-btn active" id="btnFr" type="button">FR</button><button aria-pressed="false" class="lang-btn" id="btnEn" type="button">EN</button></div></div></div>
+</div>
+<header class="hero">
+<div class="container hero-content">
+<span class="kicker" data-i18n="hero_kicker">Accès privé • Places limitées • Basse &amp; mi-saison</span>
+<h1 data-i18n="hero_h1">Revenir, sans recommencer.</h1>
+<p class="lead" data-i18n="hero_lead">Lac Amico Private Club est un membership réservé à quelques anciens guests et invités, conçu pour ceux qui recherchent un lieu familier — calme, forêt, lumière — où revenir facilement.</p>
+<div class="cta-row">
+<a class="btn btn-primary" data-i18n="cta_apply" href="#apply">Demander l’accès</a>
+<a class="btn btn-ghost" data-i18n="cta_tiers" href="#signature">Voir les memberships</a>
+</div>
+<p class="fineprint" data-i18n="hero_fineprint">Ce club n’est pas une offre publique. L’accès est accordé sur demande, selon disponibilité et respect des règles du club.</p>
+</div>
+</header>
+<section class="section" id="tiers">
+<div class="container">
+<div class="grid two">
+<div>
+<h2 data-i18n="tiers_h2" style="font-family:'Playfair Display',serif;margin:0 0 10px;font-size:34px;line-height:1.1;">Deux niveaux. Un même esprit : calme &amp; respect.</h2>
+<p data-i18n="tiers_p" style="margin:0;color:rgba(249,247,242,.82);max-width:760px;">Le membership te donne un cadre clair et un accès prioritaire sur certaines périodes. Tu proposes tes dates, nous confirmons selon la disponibilité et les règles du club.</p>
+</div>
+<div>
+<span class="badge" data-i18n="audience_badge">Couples • Familles calmes • Télétravail</span>
+<div class="divider" style="background:rgba(249,247,242,.14)"></div>
+<p data-i18n="audience_p" style="margin:0;color:rgba(249,247,242,.80);">Ambiance premium, sans fêtes ni événements. Le club est pensé pour préserver l’expérience.</p>
+</div>
+</div>
+<div class="grid three" style="margin-top:18px;">
+<article class="card signature" id="signature">
+<div class="media signature"></div>
+<div class="card-pad">
+<div class="rec-badge" data-i18n="sig_badge">Recommandé</div>
+<h3 data-i18n="sig_title">Signature</h3>
+<p data-i18n="sig_desc">Pour ceux qui veulent prioriser davantage leurs retours et sécuriser leur rythme d’évasion.</p>
+<div class="incl-chip" data-i18n="sig_incl">✅ 5 nuits incluses <small>/ an</small></div>
+<div class="value-line" data-i18n="sig_value">Valeur sécurisée : accès + flexibilité</div>
+<div class="value-sub" data-i18n="sig_replace">Remplace : recherche + incertitude + dates déjà prises</div>
+<div class="price">
+<b data-i18n="sig_price_label">Signature</b>
+<span data-i18n="annual_label">Abonnement annuel</span>
+</div>
+<ul class="list">
+<li data-i18n="sig_li1">Priorité renforcée (selon disponibilité)</li>
+<li data-i18n="sig_li2">Expérience premium, sans compromis</li>
+<li data-i18n="sig_li3">Communication dédiée</li>
+</ul>
+<div class="divider"></div>
+<a class="btn btn-primary" data-i18n="sig_btn" href="https://buy.stripe.com/aFa6oHdnegz035VgU1fAc01" rel="noopener" target="_blank">Souscrire Signature</a>
+<p class="cgv-accept" data-i18n="cgv_accept"></p>
+</div>
+</article>
+<article class="card insider" id="insider">
+<div class="media insider"></div>
+<div class="card-pad">
+<h3 data-i18n="ins_title">Insider</h3>
+<p data-i18n="ins_desc">Accès privé pour profiter de Lac Amico en basse &amp; mi-saison, avec simplicité.</p>
+<div class="incl-chip" data-i18n="ins_incl">✅ 2 nuits incluses <small>/ an</small></div>
+<div class="value-line" data-i18n="ins_value">Valeur sécurisée : pauses planifiées</div>
+<div class="value-sub" data-i18n="ins_replace">Remplace : comparer 10 annonces à chaque fois</div>
+<div class="price">
+<b data-i18n="ins_price_label">Insider</b>
+<span data-i18n="annual_label">Abonnement annuel</span>
+</div>
+<ul class="list">
+<li data-i18n="ins_li1">Accès prioritaire sur certaines périodes</li>
+<li data-i18n="ins_li2">Process simple : demande → confirmation</li>
+<li data-i18n="ins_li3">Règles claires pour préserver le calme</li>
+</ul>
+<div class="divider"></div>
+<a class="btn btn-primary" data-i18n="ins_btn" href="https://buy.stripe.com/aFa4gz0As2IacGv0V3fAc00" rel="noopener" target="_blank">Souscrire Insider</a>
+<p class="cgv-accept" data-i18n="cgv_accept"></p>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="section alt">
+<div class="container">
+<div class="gallery">
+<div class="left"></div>
+<div class="right">
+<div class="gbox g1"></div>
+<div class="gbox g2"></div>
+</div>
+</div>
+<p class="fineprint" data-i18n="gallery_fp" style="margin-top:16px;">Lac Amico Private Club privilégie les séjours calmes (pas d’événements). Les disponibilités et conditions sont confirmées après demande.</p>
+</div>
+</section>
+<section class="section" id="apply">
+<div class="container">
+<div class="grid two">
+<div>
+<h2 data-i18n="apply_h2" style="font-family:'Playfair Display',serif;margin:0 0 10px;font-size:34px;line-height:1.1;">Demander l’accès</h2>
+<p data-i18n="apply_p" style="margin:0;color:rgba(249,247,242,.82);max-width:760px;">Remplis le formulaire (1 minute). Nous reviendrons vers toi rapidement avec la confirmation et les prochaines étapes.</p>
+<div class="cta-row" style="margin-top:18px;">
+<a class="btn btn-primary" data-i18n="apply_btn" href="https://forms.gle/Cyv3MfP6uaF7swKA9" rel="noopener" target="_blank">Ouvrir le formulaire</a>
+<button class="btn btn-ghost" data-i18n="apply_faq_btn" id="openFaq2" type="button">Questions fréquentes</button>
+</div>
+</div>
+<div class="faq" id="faq"><p data-i18n="faq_teaser" style="margin:0;color:rgba(249,247,242,.85)">Tu as une question sur les dates, les règles, ou le fonctionnement ? Ouvre la FAQ — réponses claires en moins d’une minute.</p><button class="btn btn-ghost" data-i18n="faq_open" id="openFaq3" style="display:inline-flex;margin-top:14px" type="button">Ouvrir la FAQ</button></div>
+</div>
+</div>
+</section>
+<footer>
+<div class="container footer-row">
+<div>© <span id="y"></span> Lac Amico Private Club</div>
+<div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+<a class="small-link" data-i18n="footer_memberships" href="#tiers">Memberships</a>
+<a class="small-link" data-i18n="footer_apply" href="#apply">Demander l’accès</a>
+</div>
+</div>
+</footer>
+<script>document.addEventListener("DOMContentLoaded", ()=>{
+document.getElementById("y").textContent = new Date().getFullYear();
+
+
+  const i18n = {
+    fr: {
+social_note2: "La plupart des membres choisissent Signature pour la flexibilité.",
+    ins_replace: "Remplace : comparer 10 annonces à chaque fois",
+    ins_value: "Valeur sécurisée : pauses planifiées",
+    sig_replace: "Remplace : recherche + incertitude + dates déjà prises",
+    sig_value: "Valeur sécurisée : accès + flexibilité",
+    sig_badge: "Recommandé",
+    social_title: "Un club discret, pensé pour durer",
+    social_1: "Capacité volontairement limitée pour préserver le calme et la disponibilité",
+    social_2: "Accès réservé à d’anciens guests et invités",
+    social_3: "Utilisé comme lieu de retour régulier (repos, couple, télétravail)",
+    social_note: "Ce club n’est pas conçu pour maximiser l’occupation, mais pour protéger l’expérience de ceux qui y reviennent.",
+      top_apply: "Demander l’accès",
+      top_faq: "Questions fréquentes",
+      hero_kicker: "Accès privé • Places limitées • Séjours inclus hors pics",
+      hero_h1: "Revenir, sans recommencer.",
+      hero_lead: "Lac Amico Private Club est un membership privé, réservé à un nombre limité d’anciens hôtes et invités. Il règle un problème pénible et frustrant : <b>quand tu as enfin besoin d’une vraie pause, les dates qui te conviennent sont déjà prises et il faut tout recommencer : chercher, comparer, douter, sans garantie de retrouver un lieu qui te plaît vraiment.</b><br/><br/>Ici, tu ne cherches plus. <b>Tu sécurises un lieu calme et familier que tu apprécies vraiment, avec un accès prioritaire et des nuits incluses hors hautes saisons</b>.<br/><br/><b>La tranquillité d’esprit de savoir que tu peux revenir quand ça compte, dans un lieu que tu apprécies vraiment.</b>",
+      cta_apply: "Demander l’accès",
+      cta_tiers: "Voir Signature",
+      hero_fineprint: "Ce club n’est pas une offre publique. L’accès est accordé sur demande, selon disponibilité et respect des règles du club.",
+
+      video_h2: "Découvrir Lac Amico en vidéo",
+      video_p: "Une visite rapide pour ressentir l’ambiance, les espaces, et le niveau de finition. (Vidéo adaptée à la langue sélectionnée.)",
+      video_note: "Astuce : active le plein écran pour une meilleure immersion.",
+
+      tiers_h2: "Une certitude : pouvoir revenir, quand ça compte vraiment.",
+      tiers_p: "Choisis ton accès (Signature ou Insider), puis demande tes dates via le formulaire. Nous confirmons selon la disponibilité.<br/><br/><b>Recommandation :</b> Signature est le choix le plus populaire pour sa flexibilité.<br/><br/><b>Pourquoi ça marche :</b> le club est limité, donc l’accès reste réellement prioritaire.",
+      audience_badge: "Pensé pour les couples • les familles calmes • et les télétravailleurs",
+      audience_p: "<b>Un lieu fiable pour se régénérer, se retrouver et marquer les moments qui comptent.</b> <b>Un endroit où tu peux revenir en toute confiance</b> pour te reposer, te recentrer ou télétravailler dans un cadre paisible, constant et sans compromis.",
+
+      ins_title: "Insider",
+      ins_desc: "Le meilleur point d’entrée pour sécuriser tes pauses : pensé pour revenir, sans friction",
+      ins_price_label: "Insider",
+      annual_label: "Abonnement annuel",
+      ins_li1: "<b>2 nuits incluses</b> par an (basse & mi-saison)",
+	  ins_incl: "<b>2 nuits incluses</b> <small>/ an</small>", 
+      ins_li2: "Accès prioritaire + process simple : demande → confirmation",
+      ins_li3: "Expérience premium constante",
+      ins_btn: "Choisir Insider",
+
+      sig_title: "Signature",
+      sig_desc: "Pour ceux qui veulent plus de flexibilité et de certitude même quand l’envie arrive à la dernière minute.",
+      sig_price_label: "Signature",
+      sig_li1: "<b>5 nuits incluses</b> par an (basse & mi-saison)",
+	  sig_incl: "<b>5 nuits incluses</b> <small>/ an</small>",
+      sig_li2: "Option <b>last‑minute</b> (J‑10) selon disponibilité (non garanti)",
+      sig_li3: "Priorité sur annulations + accès plus flexible",
+      sig_btn: "Choisir Signature",
+
+      how_title: "Comment ça marche",
+      how_sub: "En 60 secondes.",
+      how_step1: "Tu demandes l’accès via le formulaire",
+      how_step2: "Tu reçois une confirmation + règles",
+      how_step3: "Tu proposes tes dates",
+      how_step4: "On confirme selon disponibilité",
+      how_btn: "Demander l’accès",
+      how_note: "Le club est limité afin de protéger l’expérience pour tous.",
+
+      gallery_fp: "Lac Amico Private Club privilégie les séjours calmes. Les disponibilités sont confirmées après demande.",
+
+      apply_h2: "Demander l’accès",
+      apply_p: "Remplis le formulaire. Nous reviendrons vers toi rapidement avec la confirmation.",
+      apply_btn: "Ouvrir le formulaire",
+      apply_faq_btn: "Questions fréquentes",
+      faq_teaser: "Tu as une question sur les dates, les règles, ou le fonctionnement ? Ouvre la FAQ.",
+      faq_open: "Ouvrir la FAQ",
+
+      footer_memberships: "Memberships",
+      footer_apply: "Demander l’accès",
+
+      faq_title: "Questions fréquentes",
+      close: "Fermer"
+      cgv_accept: "En procédant au paiement, tu acceptes les <a href="https://drive.google.com/file/d/1lCGv184mH2WpJL95cANKCqttqre49EEP/view?usp=sharing" target="_blank" rel="noopener">CGV</a>.",
+    },
+    en: {
+social_note2: "Most members choose Signature for flexibility.",
+    ins_replace: "Replaces: comparing 10 listings every time",
+    ins_value: "Locked-in value: planned resets",
+    sig_replace: "Replaces: searching + uncertainty + sold-out dates",
+    sig_value: "Locked-in value: access + flexibility",
+    sig_badge: "Recommended",
+    social_title: "A discreet club, built to last",
+    social_1: "Intentionally limited capacity to protect calm and availability",
+    social_2: "Access reserved for past guests and invited members",
+    social_3: "Used as a regular return place (rest, couple time, remote work)",
+    social_note: "This club is not designed to maximize occupancy, but to protect the experience of those who return.",
+      top_apply: "Request access",
+      top_faq: "FAQ",
+      hero_kicker: "Private access • Limited spots • Included off‑peak stays",
+      hero_h1: "Come back without starting over.",
+      hero_lead: "Lac Amico Private Club is a private membership, reserved for a limited number of past guests and invited members. It solves a painful and frustrating problem: <b>when you finally need a real break, the dates that work for you are already taken and you’re forced to start over: searching, comparing, second-guessing, with no guarantee of finding a place you truly like.</b><br/><br/>Here, you stop searching. <b>You secure a calm, familiar place you genuinely enjoy, with priority access and included off‑peak nights</b>.<br/><br/><b>The peace of mind of knowing you can come back—when it matters, to a place you truly enjoy.</b>",
+      cta_apply: "Request access",
+      cta_tiers: "View Signature",
+      hero_fineprint: "This is not a public offer. Access is granted upon request, subject to availability and club rules.",
+
+      video_h2: "Watch a quick video tour",
+      video_p: "A short visit to feel the atmosphere, spaces, and finishing level. (Video switches with the selected language.)",
+      video_note: "Tip: use fullscreen for the best experience.",
+
+      tiers_h2: "One certainty: you can come back, when it matters.",
+      tiers_p: "Choose your tier, then request dates via the form. We confirm based on availability and club rules.<br/><br/><b>Recommendation:</b> Signature is the most popular choice for flexibility.<br/><br/><b>Why it works:</b> the club is capped, so priority access stays real.",
+      audience_badge: "For couples • calm families • focused remote work",
+      audience_p: "<b>A reliable place to recharge, reconnect, and mark the moments that matter.</b> <b>A place you can return to with confidence</b> to rest, refocus, or work remotely in a peaceful, consistent, and uncompromising setting.",
+
+      ins_title: "Insider",
+      ins_desc: "The best entry point to secure your resets: designed to come back without friction.",
+      ins_price_label: "Insider",
+      annual_label: "Annual membership",
+      ins_li1: "<b>2 nights included</b> per year (off & mid‑season)",
+	  ins_incl: "<b>2 nights Included</b> <small>/ year</small>",
+      ins_li2: "Priority access + simple flow: request → confirmation",
+      ins_li3: "Consistent premium experience",
+      ins_btn: "Choose Insider",
+
+      sig_title: "Signature",
+      sig_desc: "For those who want more flexibility and certainty even when the urge is last‑minute.",
+      sig_price_label: "Signature",
+      sig_li1: "<b>5 nights included</b> per year (off & mid‑season)",
+	  sig_incl: "<b>5 nights Included</b> <small>/ year</small>",
+      sig_li2: "<b>Last‑minute</b> option (D‑10) subject to availability (not guaranteed)",
+      sig_li3: "Priority on cancellations + more flexible access",
+      sig_btn: "Choose Signature",
+
+      how_title: "How it works",
+      how_sub: "60 seconds.",
+      how_step1: "Request access via the form",
+      how_step2: "Receive confirmation + rules",
+      how_step3: "Propose your dates",
+      how_step4: "We confirm based on availability",
+      how_btn: "Request access",
+      how_note: "The club is intentionally limited to protect the experience for everyone.",
+
+      gallery_fp: "Lac Amico Private Club prioritizes calm stays and celebrations. Availability is confirmed after your request.",
+
+      apply_h2: "Request access",
+      apply_p: "Fill out the form. We’ll get back to you quickly with confirmation and next steps.",
+      apply_btn: "Open the form",
+      apply_faq_btn: "FAQ",
+      faq_teaser: "Wondering about dates, rules, or how it works? Open the FAQ.",
+      faq_open: "Open FAQ",
+
+      footer_memberships: "Memberships",
+      footer_apply: "Request access",
+
+      faq_title: "Frequently asked questions",
+      close: "Close"
+    }
+  };
+
+  const faqContent = {
+    fr: [
+      {q:"Qu’est-ce que j’achète exactement ?", a:"Tu n’achètes pas “des nuits”. Tu achètes une <b>certitude</b> : pouvoir revenir à Lac Amico sans recommencer (recherche, messages, comparaisons, incertitude, dates déjà prises).<br/><br/><b>Concrètement :</b> un accès prioritaire + des nuits incluses hors saisons de pic de demandes, définies chaque année par le gestionnaire du club, avec un standard premium constant (calme, propreté, expérience).<br/><br/><b>Ce que tu évites :</b> ne pas pouvoir réserver aux dates qui te conviennent vraiment, recommencer à chercher, comparer, douter, sans garantie de retrouver un lieu qui te plaît vraiment, ou repousser ton break à “plus tard”.<br/><br/><b>Ce que tu obtiens :</b> la tranquillité d’esprit de savoir que tu peux revenir aux bons moments pour toi, dans un lieu que tu apprécies vraiment avec la certitude d'une expérience de séjour de haute qualité."},
+      {q:"Comment ça marche ?", a:"1) Choisis ton accès (Insider : inclus 2 nuits • Signature : inclus 5 nuits). 2) Paiement sécurisé et email de confirmation. 3) Soumets 2 options de dates via le formulaire chaque fois que tu souhaites venir. On confirme selon la disponibilité."},
+      {q:"Et si mes 2 dates ne sont pas disponibles ?", a:"On te propose la meilleure alternative (ou on te demande 2 nouvelles options). Le but : te faire gagner du temps, sans repartir de zéro."},
+      {q:"Que se passe-t-il après le paiement ?", a:"Après le paiement, tu reçois un email de confirmation avec les instructions. Elles expliquent comment proposer 2 options de dates via le formulaire, les délais de réponse, et la confirmation finale de ton séjour. Une fois la date validée, tu reçois toutes les informations pratiques pour préparer ton séjour, en toute simplicité."},
+      {q:"Quelle est la politique d’annulation / report / no-show ?", a:"Une fois un séjour confirmé par email, toute annulation doit être faite par écrit. Plus de 14 jours avant l’arrivée, les nuits peuvent être recréditées; à 14 jours ou moins, elles sont considérées comme utilisées. Un report de dates est traité comme une annulation suivie d’une nouvelle demande, et une non‑présentation (no‑show) entraîne la perte des nuits prévues. Aucun remboursement n’est offert (voir CGV)."},
+      { q: "Pourquoi un membership ?", a: "Parce que le vrai problème n’est pas de trouver un chalet, c’est de <b>ne pas savoir si tu pourras revenir au lieu que tu as aimé au moment où tu en as besoin</b>. Quand tu es prêt(e) à décrocher, les dates qui te conviennent sont déjà prises, tu recommences recherche, comparaison, incertitude, ou tu acceptes moins bien ou encore tu reportes.<br/><br/><b>Le club règle ça :</b> tu passes de “recommencer et réserver le mieux que tu trouves, quand tu peux” à <b>revenir au lieu que tu as aimé au moment où ça compte pour toi</b> grâce à un accès prioritaire et des nuits incluses hors hautes saisons.<br/><br/><b>Imagine</b> : dans 2 semaines, tu sens la fatigue monter. Au lieu de comparer 12 annonces, tu proposes 2 options de dates et tu reviens dans un lieu que tu connais et aimes déjà.<br/><br/><b>Manquer cette fenêtre a un coût réel</b> : énergie dispersée, temps perdu, pauses repoussées. Le membership protège tes moments de déconnexion, comme on protège un rendez-vous important." },
+      {q:"Comment les dates sont confirmées ?", a:"Tu proposes tes dates. Nous confirmons selon la disponibilité."},
+      {q:"Les frais de ménage sont-ils inclus ?", a:"Non. Les frais de ménage sont payés en sus à chaque séjour, pour maintenir un standard constant."},
+      {q:"À qui s’adresse le club ?", a:"Aux couples, familles calmes et télétravailleurs qui veulent une expérience premium."},
+      {q:"Puis-je transférer mon membership ?", a:"Par défaut non. Des exceptions peuvent être autorisées par écrit au cas par cas."}
+    ],
+    en: [
+      {q:"What am I actually buying?", a:"You’re not buying “nights.” You’re buying <b>certainty</b>: the ability to come back to Lac Amico without starting over (searching, messaging, hoping dates are still available).<br/><br/><b>In practice:</b> priority access + included nights outside peak demand periods defined annually by the club manager, with a consistent premium standard (quiet, clean, dependable).<br/><br/><b>What you avoid:</b> missing the dates that truly matters to you, start over searching, comparing, uncertainty, with no guaranty of finding a place that you truly enjoy, or pushing your break to “later.”<br/><br/><b>What you get:</b> the peace of mind of knowing  you can come back when it matters, to a place you truly enyoy with the certainty of a high-quality stay."},
+      {q:"How does it work?", a:"1) Choose your tier (Insider: 2 nights included • Signature: 5 nights included). 2) Secure checkout and confirmation email. 3) Submit 2 date options via the form anytime you want to come. We confirm based on availability."},
+      {q:"What if my 2 date options aren’t available?", a:"We suggest the best alternative (or ask for 2 new options). The goal: save time without starting over."},
+      {q:"What happens after payment?", a:"After payment, you receive a confirmation email with clear instructions. It explains how to submit 2 date options via the form, the response timeline, and the final booking confirmation. Once confirmed, you’ll receive all practical details to prepare your stay without friction."},
+      {q:"What is the cancellation / rescheduling / no-show policy?", a:"Once a stay is confirmed by email, cancellations must be made in writing. If cancelled more than 14 days before arrival, nights may be credited back; within 14 days, nights are considered used. Rescheduling is treated as a cancellation followed by a new date request, and a no‑show results in the loss of the scheduled nights. No refunds are provided (see T&C)."},
+      { q: "Why a membership?", a: "Because the real problem isn’t finding a chalet, it’s <b>not knowing if you can come back where you truly enjoy, when you actually need it</b>. When you’re ready, the dates you want are gone, you're forced to start over, searching, comparing, second-guessing, and settle for whatever you can find when you can.<br/><br/><b>The club fixes that:</b> you move from “settle for whatever you can find when you can” to <b>return to a place you truly enjoy when it matters </b> with priority access and included off‑peak stays.<br/><br/><b>Picture this:</b> two weeks from now you feel the fatigue rising. Instead of comparing listings, you submit two date options… and you’re back in a place you already trust and enjoy.<br/><br/><b>Missing this window comes at a real cost</b> : scattered energy, lost time, and postponed breaks. The membership protects your moments of disconnection, the way you protect an important appointment." },
+      {q:"How are dates confirmed?", a:"You request your dates. We confirm based on availability."},
+{q:"Are cleaning fees included?", a:"No. Cleaning fees are paid per stay to keep a consistent premium standard."},
+      {q:"Who is this club for?", a:"Couples, calm families, and remote workers who want a premium experience."},
+      {q:"Can I transfer my membership?", a:"Not by default. Exceptions may be approved in writing on a case-by-case basis."}
+    ]
+  };
+
+  let lang = localStorage.getItem("lac_amico_lang") || "fr";
+
+  function renderFaq(){
+    const body = document.getElementById("faqBody");
+    if(!body) return;
+    const items = faqContent[lang] || [];
+    body.innerHTML = items.map(it => (
+      `<div class="faq-item">
+        <p class="faq-q">${it.q}</p>
+        <p class="faq-a">${it.a}</p>
+      </div>`
+    )).join("");
+  }
+
+  function applyLang(){
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if(i18n[lang] && i18n[lang][key]) el.innerHTML = i18n[lang][key];
+    });
+
+    const frBtn = document.getElementById("btnFr");
+    const enBtn = document.getElementById("btnEn");
+    frBtn?.classList.toggle("active", lang==="fr");
+    enBtn?.classList.toggle("active", lang==="en");
+    frBtn?.setAttribute("aria-pressed", lang==="fr");
+    enBtn?.setAttribute("aria-pressed", lang==="en");
+    if(document.getElementById("faqModal")?.classList.contains("open")) renderFaq();
+
+    localStorage.setItem("lac_amico_lang", lang);
+  }
+
+  function openFaq(){
+    renderFaq();
+    const modal = document.getElementById("faqModal");
+    modal?.classList.add("open");
+    modal?.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden";
+  }
+  function closeFaq(){
+    const modal = document.getElementById("faqModal");
+    modal?.classList.remove("open");
+    modal?.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+  }
+
+  document.getElementById("btnFr")?.addEventListener("click", ()=>{ lang="fr"; applyLang(); });
+  document.getElementById("btnEn")?.addEventListener("click", ()=>{ lang="en"; applyLang(); });
+
+  document.getElementById("openFaq")?.addEventListener("click", openFaq);
+  document.getElementById("openFaq2")?.addEventListener("click", openFaq);
+  document.getElementById("openFaq3")?.addEventListener("click", openFaq);
+
+  document.getElementById("closeFaq")?.addEventListener("click", closeFaq);
+  document.querySelector("#faqModal .faq-overlay")?.addEventListener("click", closeFaq);
+  document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeFaq(); });
+
+  applyLang();
+});
+</script>
+
+<div aria-hidden="true" class="faq-modal" id="faqModal">
+<div class="faq-overlay" data-close="true"></div>
+<div aria-labelledby="faqTitle" aria-modal="true" class="faq-panel" role="dialog">
+<div class="faq-head">
+<div class="faq-title" data-i18n="faq_title" id="faqTitle">Questions fréquentes</div>
+<button aria-label="Close" class="faq-close" data-i18n="close" id="closeFaq" type="button">Fermer</button>
+</div>
+<div class="faq-body" id="faqBody"></div>
+</div>
+</div>
+</body>
+</html>
+Displaying index.html.
