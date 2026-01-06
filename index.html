@@ -198,6 +198,7 @@
     }
     .media.insider{background-image:url("assets/pro-2/25_terrasse-1-1.jpg")}
     .media.signature{background-image:url("assets/pro-2/12_salon-1-1.jpg")}
+    .media.reserve{background-image:url("assets/pro-2/12_salon-1-1.jpg")}
     .list{
       margin:12px 0 0;
       padding-left:18px;
@@ -405,6 +406,17 @@
   color:#fff;
 }
 .card.signature .btn.btn-primary:hover{ filter:brightness(.95); }
+.card.reserve{
+  border-color:#C9B7FF;
+  background:linear-gradient(180deg,#ffffff,#F4F0FF);
+}
+.card.reserve .btn.btn-primary{
+  background:#1f4fbf;
+  border-color:#1f4fbf;
+  color:#fff;
+}
+.card.reserve .btn.btn-primary:hover{ filter:brightness(.95); }
+
 .card.insider .btn.btn-primary{
   background:#fff;
   color:#1f4fbf;
@@ -463,9 +475,9 @@
 <span data-i18n="annual_label">Abonnement annuel</span>
 </div>
 <ul class="list">
-<li data-i18n="sig_li1">Priorité renforcée (selon disponibilité)</li>
-<li data-i18n="sig_li2">Expérience premium, sans compromis</li>
-<li data-i18n="sig_li3">Communication dédiée</li>
+        <li data-i18n="sig_li1">...</li>
+        <li data-i18n="sig_li2">...</li>
+        <li data-i18n="sig_li3">...</li>        
 </ul>
 <div class="divider"></div>
 <a class="btn btn-primary" data-i18n="sig_btn" href="https://buy.stripe.com/aFa6oHdnegz035VgU1fAc01" rel="noopener" target="_blank">Souscrire Signature</a>
@@ -484,12 +496,36 @@
 <span data-i18n="annual_label">Abonnement annuel</span>
 </div>
 <ul class="list">
-<li data-i18n="ins_li1">Accès prioritaire sur certaines périodes</li>
-<li data-i18n="ins_li2">Process simple : demande → confirmation</li>
-<li data-i18n="ins_li3">Règles claires pour préserver le calme</li>
+        <li data-i18n="ins_li1">...</li>
+        <li data-i18n="ins_li2">...</li>
+        <li data-i18n="ins_li3">...</li>
 </ul>
 <div class="divider"></div>
 <a class="btn btn-primary" data-i18n="ins_btn" href="https://buy.stripe.com/aFa4gz0As2IacGv0V3fAc00" rel="noopener" target="_blank">Souscrire Insider</a>
+</div>
+</article>
+
+<article class="card reserve" id="reserve">
+<div class="media reserve"></div>
+<div class="card-pad">
+<div class="rec-badge" data-i18n="res_badge">New</div>
+<h3 data-i18n="res_title">Reserve</h3>
+<p data-i18n="res_desc">Maximum priority, including Summer &amp; end‑of‑year peak access (subject to availability).</p>
+<div class="incl-chip" data-i18n="res_incl">5 nights included <small>/ year</small></div>
+<div class="value-line" data-i18n="res_value">Secured value: top priority + expanded peak access</div>
+<div class="value-sub" data-i18n="res_replace">Replaces: date stress (even in Summer)</div>
+<div class="price">
+<b data-i18n="res_price_label">Reserve</b>
+<span data-i18n="annual_label">Annual membership</span>
+</div>
+<ul class="list">
+  <li data-i18n="res_li1">5 nights included per year (up to 2 stays, limited to one peak-period stay per year)</li>
+  <li data-i18n="res_li2">Access to peak periods: including Summer &amp; End of year (subject to availability)</li>
+  <li data-i18n="res_li3">Late check-out (subject to availability)</li>
+  <li data-i18n="res_li4">Priority over Insider and Signature</li>
+</ul>
+<div class="divider"></div>
+<a class="btn btn-primary" data-i18n="res_btn" href="https://buy.stripe.com/3cI28raqT8LX28w2xO4F202" rel="noopener" target="_blank">Choose Reserve</a>
 </div>
 </article>
 </div>
@@ -526,6 +562,7 @@
 <div class="container footer-row">
 <div>© <span id="y"></span> Lac Amico Private Club</div>
 <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+<a class="small-link" href="https://drive.google.com/file/d/1lCGv184mH2WpJL95cANKCqttqre49EEP/view?usp=sharing" target="_blank" rel="noopener">CGV</a>
 <a class="small-link" data-i18n="footer_memberships" href="#tiers">Memberships</a>
 <a class="small-link" data-i18n="footer_apply" href="#apply">Demander l’accès</a>
 </div>
@@ -552,7 +589,7 @@ social_note2: "La plupart des membres choisissent Signature pour la flexibilité
       top_faq: "Questions fréquentes",
       hero_kicker: "Accès privé • Places limitées • Séjours inclus hors pics",
       hero_h1: "Revenir, sans recommencer.",
-      hero_lead: "Lac Amico Private Club est un membership privé, réservé à un nombre limité d’anciens hôtes et invités. Il règle un problème pénible et frustrant : <b>quand tu as enfin besoin d’une vraie pause, les dates qui te conviennent sont déjà prises et il faut tout recommencer : chercher, comparer, douter, sans garantie de retrouver un lieu qui te plaît vraiment.</b><br/><br/>Ici, tu ne cherches plus. <b>Tu sécurises un lieu calme et familier que tu apprécies vraiment, avec un accès prioritaire et des nuits incluses hors hautes saisons</b>.<br/><br/><b>La tranquillité d’esprit de savoir que tu peux revenir quand ça compte, dans un lieu que tu apprécies vraiment.</b>",
+      hero_lead: "Lac Amico Private Club est un membership privé, réservé à un nombre limité d’anciens hôtes et invités. Il règle un problème pénible et frustrant : <b>quand tu as enfin besoin d’une vraie pause, les dates qui te conviennent sont déjà prises et il faut tout recommencer : chercher, comparer, douter, sans garantie de retrouver un lieu qui te plaît vraiment.</b><br/><br/>Ici, tu ne cherches plus. <b>Tu sécurises un lieu calme et familier que tu apprécies vraiment, avec un accès prioritaire et des nuits incluses</b>.<br/><br/><b>La tranquillité d’esprit de savoir que tu peux revenir quand ça compte, dans un lieu que tu apprécies vraiment.</b>",
       cta_apply: "Demander l’accès",
       cta_tiers: "Voir Signature",
       hero_fineprint: "Ce club n’est pas une offre publique. L’accès est accordé sur demande, selon disponibilité et respect des règles du club.",
@@ -562,7 +599,7 @@ social_note2: "La plupart des membres choisissent Signature pour la flexibilité
       video_note: "Astuce : active le plein écran pour une meilleure immersion.",
 
       tiers_h2: "Une certitude : pouvoir revenir, quand ça compte vraiment.",
-      tiers_p: "Choisis ton accès (Signature ou Insider), puis demande tes dates via le formulaire. Nous confirmons selon la disponibilité.<br/><br/><b>Recommandation :</b> Signature est le choix le plus populaire pour sa flexibilité.<br/><br/><b>Pourquoi ça marche :</b> le club est limité, donc l’accès reste réellement prioritaire.",
+      tiers_p: "Choisis ton accès, puis demande tes dates via le formulaire. Nous confirmons selon la disponibilité.<br/><br/><b>Recommandation :</b> Signature est le choix le plus populaire pour sa flexibilité.<br/><br/><b>Pourquoi ça marche :</b> le club est limité, donc l’accès reste réellement prioritaire.",
       audience_badge: "Pensé pour les couples • les familles calmes • et les télétravailleurs",
       audience_p: "<b>Un lieu fiable pour se régénérer, se retrouver et marquer les moments qui comptent.</b> <b>Un endroit où tu peux revenir en toute confiance</b> pour te reposer, te recentrer ou télétravailler dans un cadre paisible, constant et sans compromis.",
 
@@ -570,19 +607,19 @@ social_note2: "La plupart des membres choisissent Signature pour la flexibilité
       ins_desc: "Le meilleur point d’entrée pour sécuriser tes pauses : pensé pour revenir, sans friction",
       ins_price_label: "Insider",
       annual_label: "Abonnement annuel",
-      ins_li1: "<b>2 nuits incluses</b> par an (basse & mi-saison)",
+      ins_li1: "2 nuits incluses par année",
 	  ins_incl: "<b>2 nuits incluses</b> <small>/ an</small>", 
-      ins_li2: "Accès prioritaire + process simple : demande → confirmation",
-      ins_li3: "Expérience premium constante",
+      ins_li2: "Accès aux périodes de pic de demandes : printemps, automne et longs week-ends (selon disponibilité)",
+      ins_li3: "Départ tardif (selon disponibilité)",
       ins_btn: "Choisir Insider",
 
       sig_title: "Signature",
       sig_desc: "Pour ceux qui veulent plus de flexibilité et de certitude même quand l’envie arrive à la dernière minute.",
       sig_price_label: "Signature",
-      sig_li1: "<b>5 nuits incluses</b> par an (basse & mi-saison)",
+      sig_li1: "5 nuits incluses par année (jusqu’à 2 séjours, dont 1 seul en période de pic de demandes)",
 	  sig_incl: "<b>5 nuits incluses</b> <small>/ an</small>",
-      sig_li2: "Option <b>last‑minute</b> (J‑10) selon disponibilité (non garanti)",
-      sig_li3: "Priorité sur annulations + accès plus flexible",
+      sig_li2: "Accès aux périodes de pics de demande : printemps, automne et longs week-ends (selon disponibilité)",
+      sig_li3: "Départ tardif (selon disponibilité)",
       sig_btn: "Choisir Signature",
 
       how_title: "Comment ça marche",
@@ -607,19 +644,19 @@ social_note2: "La plupart des membres choisissent Signature pour la flexibilité
       footer_apply: "Demander l’accès",
 
       faq_title: "Questions fréquentes",
-      
-      res_badge: "Nouveau",
+      close: "Fermer"
+      res_badge: "Reserve",
       res_title: "Reserve",
-      res_desc: "Priorité maximale, incluant l’accès à l’été et aux pics de fin d’année (selon disponibilité).",
+      res_desc: "Priorité maximale, incluant l’accès possible à l’été et à la fin d’année (selon disponibilité).",
       res_incl: "<b>5 nuits incluses</b> <small>/ an</small>",
-      res_value: "Valeur sécurisée : priorité absolue + accès aux pics étendu",
-      res_replace: "Remplace : stress des dates (même en été)",
-      res_li1: "5 nuits incluses par an (jusqu’à 2 séjours, dont max 1 séjour en période de pic de demandes par an)",
-      res_li2: "Accès aux périodes de pic de demandes : incluant l’Été & la Fin d’année (selon disponibilité)",
+      res_value: "Valeur sécurisée : priorité absolue + accès élargi",
+      res_replace: "Remplace : stress des dates (même l’été)",
+      res_price_label: "Reserve",
+      res_btn: "Choisir Reserve",
+      res_li1: "5 nuits incluses par année (jusqu’à 2 séjours, dont 1 seul en période de pic de demandes)",
+      res_li2: "Accès aux périodes de pic de demandes : incluant l’été et la fin d’année (selon disponibilité)",
       res_li3: "Départ tardif (selon disponibilité)",
       res_li4: "Priorité sur Insider et Signature",
-      res_btn: "Choisir Reserve",
-close: "Fermer"
     },
     en: {
 social_note2: "Most members choose Signature for flexibility.",
@@ -637,7 +674,7 @@ social_note2: "Most members choose Signature for flexibility.",
       top_faq: "FAQ",
       hero_kicker: "Private access • Limited spots • Included off‑peak stays",
       hero_h1: "Come back without starting over.",
-      hero_lead: "Lac Amico Private Club is a private membership, reserved for a limited number of past guests and invited members. It solves a painful and frustrating problem: <b>when you finally need a real break, the dates that work for you are already taken and you’re forced to start over: searching, comparing, second-guessing, with no guarantee of finding a place you truly like.</b><br/><br/>Here, you stop searching. <b>You secure a calm, familiar place you genuinely enjoy, with priority access and included off‑peak nights</b>.<br/><br/><b>The peace of mind of knowing you can come back—when it matters, to a place you truly enjoy.</b>",
+      hero_lead: "Lac Amico Private Club is a private membership, reserved for a limited number of past guests and invited members. It solves a painful and frustrating problem: <b>when you finally need a real break, the dates that work for you are already taken and you’re forced to start over: searching, comparing, second-guessing, with no guarantee of finding a place you truly like.</b><br/><br/>Here, you stop searching. <b>You secure a calm, familiar place you genuinely enjoy, with priority access and included nights</b>.<br/><br/><b>The peace of mind of knowing you can come back when it matters, to a place you truly enjoy.</b>",
       cta_apply: "Request access",
       cta_tiers: "View Signature",
       hero_fineprint: "This is not a public offer. Access is granted upon request, subject to availability and club rules.",
@@ -646,7 +683,7 @@ social_note2: "Most members choose Signature for flexibility.",
       video_p: "A short visit to feel the atmosphere, spaces, and finishing level. (Video switches with the selected language.)",
       video_note: "Tip: use fullscreen for the best experience.",
 
-      tiers_h2: "Two tiers. One certainty: you can come back, when it matters.",
+      tiers_h2: "One certainty: you can come back, when it matters.",
       tiers_p: "Choose your tier, then request dates via the form. We confirm based on availability and club rules.<br/><br/><b>Recommendation:</b> Signature is the most popular choice for flexibility.<br/><br/><b>Why it works:</b> the club is capped, so priority access stays real.",
       audience_badge: "For couples • calm families • focused remote work",
       audience_p: "<b>A reliable place to recharge, reconnect, and mark the moments that matter.</b> <b>A place you can return to with confidence</b> to rest, refocus, or work remotely in a peaceful, consistent, and uncompromising setting.",
@@ -655,19 +692,19 @@ social_note2: "Most members choose Signature for flexibility.",
       ins_desc: "The best entry point to secure your resets: designed to come back without friction.",
       ins_price_label: "Insider",
       annual_label: "Annual membership",
-      ins_li1: "<b>2 nights included</b> per year (off & mid‑season)",
+      ins_li1: "2 nights included per year",
 	  ins_incl: "<b>2 nights Included</b> <small>/ year</small>",
-      ins_li2: "Priority access + simple flow: request → confirmation",
-      ins_li3: "Consistent premium experience",
+      ins_li2: "Access to peak periods: spring, fall, long weekends (subject to availability)",
+      ins_li3: "Late check-out (subject to availability)",
       ins_btn: "Choose Insider",
 
       sig_title: "Signature",
       sig_desc: "For those who want more flexibility and certainty even when the urge is last‑minute.",
       sig_price_label: "Signature",
-      sig_li1: "<b>5 nights included</b> per year (off & mid‑season)",
+      sig_li1: "5 nights included per year (up to 2 stays, limited to one peak-period stay per year)",
 	  sig_incl: "<b>5 nights Included</b> <small>/ year</small>",
-      sig_li2: "<b>Last‑minute</b> option (D‑10) subject to availability (not guaranteed)",
-      sig_li3: "Priority on cancellations + more flexible access",
+      sig_li2: "Access to peak periods: spring, fall, long weekends (subject to availability)",
+      sig_li3: "Late check-out (subject to availability)",
       sig_btn: "Choose Signature",
 
       how_title: "How it works",
@@ -692,46 +729,38 @@ social_note2: "Most members choose Signature for flexibility.",
       footer_apply: "Request access",
 
       faq_title: "Frequently asked questions",
-      
-      res_badge: "New",
-      res_title: "Reserve",
-      res_desc: "Maximum priority, including Summer & end‑of‑year peak access (subject to availability).",
-      res_incl: "<b>5 nights Included</b> <small>/ year</small>",
-      res_value: "Locked‑in value: top priority + expanded peak access",
-      res_replace: "Replaces: date stress (even in Summer)",
-      res_li1: "5 nights included per year (up to 2 stays, limited to one peak-period stay per year)",
-      res_li2: "Access to peak periods: including Summer & End of year (subject to availability)",
-      res_li3: "Late check-out (subject to availability)",
-      res_li4: "Priority over Insider and Signature",
-      res_btn: "Choose Reserve",
-close: "Close"
+      close: "Close"
     }
   };
 
   const faqContent = {
-    fr: [
-      {q:"Qu’est-ce que j’achète exactement ?", a:"Tu n’achètes pas “des nuits”. Tu achètes une <b>certitude</b> : pouvoir revenir à Lac Amico sans recommencer (recherche, messages, comparaisons, incertitude, dates déjà prises).<br/><br/><b>Concrètement :</b> un accès prioritaire + des nuits incluses hors saisons de pic de demandes, définies chaque année par le gestionnaire du club, avec un standard premium constant (calme, propreté, expérience).<br/><br/><b>Ce que tu évites :</b> ne pas pouvoir réserver aux dates qui te conviennent vraiment, recommencer à chercher, comparer, douter, sans garantie de retrouver un lieu qui te plaît vraiment, ou repousser ton break à “plus tard”.<br/><br/><b>Ce que tu obtiens :</b> la tranquillité d’esprit de savoir que tu peux revenir aux bons moments pour toi, dans un lieu que tu apprécies vraiment avec la certitude d'une expérience de séjour de haute qualité."},
+  fr: [    
+	  {q:"Qu’est-ce que j’achète exactement ?", a:"Tu n’achètes pas “des nuits”. Tu achètes une <b>certitude</b> : pouvoir revenir à Lac Amico sans recommencer (recherche, messages, comparaisons, incertitude, dates déjà prises).<br/><br/><b>Concrètement :</b> un accès prioritaire + des nuits incluses, avec un standard premium constant (calme, propreté, expérience).<br/><br/><b>Ce que tu évites :</b> ne pas pouvoir réserver aux dates qui te conviennent vraiment, recommencer à chercher, comparer, douter, sans garantie de retrouver un lieu qui te plaît vraiment, ou repousser ton break à “plus tard”.<br/><br/><b>Ce que tu obtiens :</b> la tranquillité d’esprit de savoir que tu peux revenir aux bons moments pour toi, dans un lieu que tu apprécies vraiment avec la certitude d'une expérience de séjour de haute qualité."},
       {q:"Comment ça marche ?", a:"1) Choisis ton accès (Insider : inclus 2 nuits • Signature : inclus 5 nuits). 2) Paiement sécurisé et email de confirmation. 3) Soumets 2 options de dates via le formulaire chaque fois que tu souhaites venir. On confirme selon la disponibilité."},
       {q:"Et si mes 2 dates ne sont pas disponibles ?", a:"On te propose la meilleure alternative (ou on te demande 2 nouvelles options). Le but : te faire gagner du temps, sans repartir de zéro."},
-      {q:"Que se passe-t-il après le paiement ?", a:"Après le paiement, tu reçois un email de confirmation avec les instructions. Elles expliquent comment proposer 2 options de dates via le formulaire, les délais de réponse, et la confirmation finale de ton séjour. Une fois la date validée, tu reçois toutes les informations pratiques pour préparer ton séjour, en toute simplicité."},
+      {q:"Que se passe-t-il après le paiement ?", a:"Après le paiement, tu reçois un email de confirmation avec les instructions. Elles expliquent comment proposer 2 options de dates via le formulaire, les délais de réponse, et la confirmation finale de ton séjour. Une fois la date validée, tu reçois toutes les informations pratiques pour préparer ton séjour, en toute simplicité."},	  
       { q: "Pourquoi un membership ?", a: "Parce que le vrai problème n’est pas de trouver un chalet, c’est de <b>ne pas savoir si tu pourras revenir au lieu que tu as aimé au moment où tu en as besoin</b>. Quand tu es prêt(e) à décrocher, les dates qui te conviennent sont déjà prises, tu recommences recherche, comparaison, incertitude, ou tu acceptes moins bien ou encore tu reportes.<br/><br/><b>Le club règle ça :</b> tu passes de “recommencer et réserver le mieux que tu trouves, quand tu peux” à <b>revenir au lieu que tu as aimé au moment où ça compte pour toi</b> grâce à un accès prioritaire et des nuits incluses hors hautes saisons.<br/><br/><b>Imagine</b> : dans 2 semaines, tu sens la fatigue monter. Au lieu de comparer 12 annonces, tu proposes 2 options de dates et tu reviens dans un lieu que tu connais et aimes déjà.<br/><br/><b>Manquer cette fenêtre a un coût réel</b> : énergie dispersée, temps perdu, pauses repoussées. Le membership protège tes moments de déconnexion, comme on protège un rendez-vous important." },
+	  { q: "Puis-je utiliser mes nuits pendant l’été ou la période des Fêtes ?", a: "Cela dépend de ton accès. Insider et Signature donnent accès aux pics  du printemps, automne et longs week-ends selon disponibilité, mais pas à l’été ni à la fin d'année. Reserve permet un accès possible à l’été et à la fin d’année, limité à un séjour en période de pic de demandes par année, et confirmé uniquement selon la disponibilité réelle au moment de la demande (aucune date n’est garantie). Voir les CGV" },
       {q:"Comment les dates sont confirmées ?", a:"Tu proposes tes dates. Nous confirmons selon la disponibilité."},
       {q:"Les frais de ménage sont-ils inclus ?", a:"Non. Les frais de ménage sont payés en sus à chaque séjour, pour maintenir un standard constant."},
       {q:"À qui s’adresse le club ?", a:"Aux couples, familles calmes et télétravailleurs qui veulent une expérience premium."},
+	  {q:"Quelle est la politique d’annulation / report / no-show ?", a:"Une fois un séjour confirmé par email, toute annulation doit être faite par écrit. Plus de 14 jours avant l’arrivée, les nuits peuvent être recréditées; à 14 jours ou moins, elles sont considérées comme utilisées. Un report de dates est traité comme une annulation suivie d’une nouvelle demande, et une non‑présentation (no‑show) entraîne la perte des nuits prévues. Aucun remboursement n’est offert. Voir CGV."},
       {q:"Puis-je transférer mon membership ?", a:"Par défaut non. Des exceptions peuvent être autorisées par écrit au cas par cas."}
-    ],
-    en: [
-      {q:"What am I actually buying?", a:"You’re not buying “nights.” You’re buying <b>certainty</b>: the ability to come back to Lac Amico without starting over (searching, messaging, hoping dates are still available).<br/><br/><b>In practice:</b> priority access + included nights outside peak demand periods defined annually by the club manager, with a consistent premium standard (quiet, clean, dependable).<br/><br/><b>What you avoid:</b> missing the dates that truly matters to you, start over searching, comparing, uncertainty, with no guaranty of finding a place that you truly enjoy, or pushing your break to “later.”<br/><br/><b>What you get:</b> the peace of mind of knowing  you can come back when it matters, to a place you truly enyoy with the certainty of a high-quality stay."},
+  ],
+  en: [    
+	  {q:"What am I actually buying?", a:"You’re not buying “nights.” You’re buying <b>certainty</b>: the ability to come back to Lac Amico without starting over (searching, messaging, hoping dates are still available).<br/><br/><b>In practice:</b> priority access + included nights, with a consistent premium standard (quiet, clean, dependable).<br/><br/><b>What you avoid:</b> missing the dates that truly matters to you, start over searching, comparing, uncertainty, with no guaranty of finding a place that you truly enjoy, or pushing your break to “later.”<br/><br/><b>What you get:</b> the peace of mind of knowing  you can come back when it matters, to a place you truly enyoy with the certainty of a high-quality stay."},
       {q:"How does it work?", a:"1) Choose your tier (Insider: 2 nights included • Signature: 5 nights included). 2) Secure checkout and confirmation email. 3) Submit 2 date options via the form anytime you want to come. We confirm based on availability."},
       {q:"What if my 2 date options aren’t available?", a:"We suggest the best alternative (or ask for 2 new options). The goal: save time without starting over."},
       {q:"What happens after payment?", a:"After payment, you receive a confirmation email with clear instructions. It explains how to submit 2 date options via the form, the response timeline, and the final booking confirmation. Once confirmed, you’ll receive all practical details to prepare your stay without friction."},
-      { q: "Why a membership?", a: "Because the real problem isn’t finding a chalet, it’s <b>not knowing if you can come back where you truly enjoy, when you actually need it</b>. When you’re ready, the dates you want are gone, you're forced to start over, searching, comparing, second-guessing, and settle for whatever you can find when you can.<br/><br/><b>The club fixes that:</b> you move from “settle for whatever you can find when you can” to <b>return to a place you truly enjoy when it matters </b> with priority access and included off‑peak stays.<br/><br/><b>Picture this:</b> two weeks from now you feel the fatigue rising. Instead of comparing listings, you submit two date options… and you’re back in a place you already trust and enjoy.<br/><br/><b>Missing this window comes at a real cost</b> : scattered energy, lost time, and postponed breaks. The membership protects your moments of disconnection, the way you protect an important appointment." },
+      {q: "Why a membership?", a: "Because the real problem isn’t finding a chalet, it’s <b>not knowing if you can come back where you truly enjoy, when you actually need it</b>. When you’re ready, the dates you want are gone, you're forced to start over, searching, comparing, second-guessing, and settle for whatever you can find when you can.<br/><br/><b>The club fixes that:</b> you move from “settle for whatever you can find when you can” to <b>return to a place you truly enjoy when it matters </b> with priority access and included off‑peak stays.<br/><br/><b>Picture this:</b> two weeks from now you feel the fatigue rising. Instead of comparing listings, you submit two date options… and you’re back in a place you already trust and enjoy.<br/><br/><b>Missing this window comes at a real cost</b> : scattered energy, lost time, and postponed breaks. The membership protects your moments of disconnection, the way you protect an important appointment." },
+	  {q: "Can I use my nights during Summer or the Holiday season?", a: "It depends on your tier. Insider and Signature allow peak periods of spring, fall and long weekends subject to availability, but not Summer or the end-of-year holiday season. Reserve may allow access to Summer and end-of-year peak periods, limited to one peak-period stay per year and confirmed strictly subject to actual availability at the time of request (no dates are guaranteed). See T&C" },
       {q:"How are dates confirmed?", a:"You request your dates. We confirm based on availability."},
-{q:"Are cleaning fees included?", a:"No. Cleaning fees are paid per stay to keep a consistent premium standard."},
+      {q:"Are cleaning fees included?", a:"No. Cleaning fees are paid per stay to keep a consistent premium standard."},
       {q:"Who is this club for?", a:"Couples, calm families, and remote workers who want a premium experience."},
+	  {q:"What is the cancellation / rescheduling / no-show policy?", a:"Once a stay is confirmed by email, cancellations must be made in writing. If cancelled more than 14 days before arrival, nights may be credited back; within 14 days, nights are considered used. Rescheduling is treated as a cancellation followed by a new date request, and a no-show results in the loss of the scheduled nights. No refunds are provided. See T&C."},
       {q:"Can I transfer my membership?", a:"Not by default. Exceptions may be approved in writing on a case-by-case basis."}
-    ]
-  };
+  ]
+};
 
   let lang = localStorage.getItem("lac_amico_lang") || "fr";
 
